@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SP Houses — Zgornje Palovče Settlement Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f5f0eb; color: #3b3228;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #4a3728 0%, #5c4033 100%);
+    border-bottom: 2px solid #8b6f47;
+    padding: 14px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header h1 { font-size: 20px; color: #f5e6d0; font-weight: 600; }
+  .header .subtitle { font-size: 13px; color: #c4a882; margin-top: 2px; }
+
+  /* Main layout */
+  .main { padding: 20px 24px; max-width: 1600px; margin: 0 auto; }
+
+  .intro {
+    background: #faf6f1; border: 1px solid #d4c4a8; border-radius: 8px;
+    padding: 16px 20px; margin-bottom: 24px; line-height: 1.6;
+    font-size: 14px; color: #5a4e42;
+  }
+  .intro strong { color: #4a3728; }
+
+  /* Timeline legend */
+  .timeline-legend {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-bottom: 20px; font-size: 12px;
+  }
+  .tl-item { display: flex; align-items: center; gap: 6px; }
+  .tl-dot { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.15); }
+
+  /* Houses grid */
+  .houses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .house-card {
+    background: #fff;
+    border: 2px solid #d4c4a8;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .house-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .house-card.direct-line {
+    border-color: #b45309;
+    box-shadow: 0 0 0 2px rgba(180,83,9,0.2);
+  }
+
+  .house-header {
+    padding: 12px 14px;
+    background: #f0e8dc;
+    border-bottom: 1px solid #d4c4a8;
+  }
+  .house-card.direct-line .house-header { background: #fef3c7; }
+  .house-num {
+    font-size: 22px; font-weight: 700; color: #4a3728;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .house-num .direct-tag {
+    font-size: 9px; background: #b45309; color: white;
+    padding: 2px 6px; border-radius: 3px; font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .house-sa-name { font-size: 12px; color: #8b7a66; margin-top: 2px; font-style: italic; }
+
+  .house-body { padding: 12px 14px; }
+
+  /* Timeline entries */
+  .timeline { position: relative; padding-left: 20px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 5px; top: 4px; bottom: 4px;
+    width: 2px; background: #d4c4a8;
+  }
+  .tl-entry {
+    position: relative;
+    padding: 6px 0 10px 0;
+    font-size: 12px; line-height: 1.5;
+  }
+  .tl-entry::before {
+    content: '';
+    position: absolute;
+    left: -19px; top: 10px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  }
+  .tl-entry.era-rems::before { background: #dc2626; }
+  .tl-entry.era-osredkar::before { background: #2563eb; }
+  .tl-entry.era-vaupetic::before { background: #059669; }
+  .tl-entry.era-pistotnik::before { background: #9333ea; }
+  .tl-entry.era-urankar::before { background: #6b7280; }
+  .tl-entry.era-other::before { background: #a3a3a3; }
+  .tl-entry.era-budnar::before { background: #92400e; }
+  .tl-entry.era-kladnik::before { background: #0891b2; }
+  .tl-entry.era-koschir::before { background: #ca8a04; }
+
+  .tl-date { font-weight: 600; color: #5c4033; }
+  .tl-family {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    padding: 1px 5px; border-radius: 3px; color: white;
+    margin-left: 4px; vertical-align: middle;
+  }
+  .tl-detail { color: #6b5e52; font-size: 11px; margin-top: 2px; }
+  .tl-note { color: #8b7a66; font-size: 11px; font-style: italic; margin-top: 2px; }
+
+  /* Cross-links section */
+  .cross-links {
+    background: #fff;
+    border: 2px solid #d4c4a8;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .cross-links h2 {
+    font-size: 16px; color: #4a3728; margin-bottom: 14px;
+    padding-bottom: 6px; border-bottom: 1px solid #d4c4a8;
+  }
+
+  .marriage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+  }
+  .marriage-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    background: #faf6f1; border-radius: 8px;
+    border: 1px solid #e8dcc8;
+    font-size: 13px;
+  }
+  .marriage-link .houses {
+    display: flex; align-items: center; gap: 4px;
+    font-weight: 700; font-size: 14px; color: #4a3728;
+    white-space: nowrap;
+  }
+  .marriage-link .arrow { color: #b45309; font-size: 16px; }
+  .marriage-link .desc { color: #5a4e42; line-height: 1.4; }
+  .marriage-link .year { color: #8b6f47; font-weight: 600; }
+  .marriage-link.incoming { border-left: 3px solid #0891b2; }
+  .marriage-link.internal { border-left: 3px solid #b45309; }
+
+  /* Key insights */
+  .insights {
+    background: #fff;
+    border: 2px solid #d4c4a8;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .insights h2 {
+    font-size: 16px; color: #4a3728; margin-bottom: 14px;
+    padding-bottom: 6px; border-bottom: 1px solid #d4c4a8;
+  }
+  .insight-item {
+    padding: 10px 0; border-bottom: 1px solid #f0e8dc;
+    font-size: 13px; line-height: 1.6; color: #5a4e42;
+  }
+  .insight-item:last-child { border: none; }
+  .insight-item strong { color: #4a3728; }
+
+  /* Responsive */
+  @media (max-width: 1100px) { .houses-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .houses-grid { grid-template-columns: 1fr; } }
+
+  .family-rems { background: #dc2626; }
+  .family-osredkar { background: #2563eb; }
+  .family-vaupetic { background: #059669; }
+  .family-pistotnik { background: #9333ea; }
+  .family-urankar { background: #6b7280; }
+  .family-other { background: #a3a3a3; }
+  .family-budnar { background: #92400e; }
+  .family-kladnik { background: #0891b2; }
+  .family-koschir { background: #ca8a04; }
+  .family-kregar { background: #10b981; }
+  .family-bernoth { background: #78716c; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Zgornje Palovče — SP House Settlement Diagram</h1>
+  <div class="subtitle">Eight houses, 1827 cadastral survey | Parish of Vranja Peč / Kamnik</div>
+</div>
+
+<div class="main">
+
+<div class="intro">
+  Zgornje Palovče ("Superior Palovče") was a tiny settlement of roughly eight houses in the hills above Kamnik.
+  The <strong>1827 Habsburg cadastral survey</strong> assigned house numbers SP1–SP8, though SP7 and SP8 may not have been officially surveyed.
+  <strong>Note:</strong> House numbers shifted by one digit around 1800 — pre-1800 records reference numbers one higher than the 1827 assignments.
+  Each house below shows the family succession from earliest records through the late 1800s, with cross-links showing marriages between houses.
+</div>
+
+<div class="timeline-legend">
+  <div class="tl-item"><div class="tl-dot" style="background:#dc2626"></div> Rems</div>
+  <div class="tl-item"><div class="tl-dot" style="background:#2563eb"></div> Osredkar</div>
+  <div class="tl-item"><div class="tl-dot" style="background:#059669"></div> Vaupetič</div>
+  <div class="tl-item"><div class="tl-dot" style="background:#10b981"></div> Kregar</div>
+  <div class="tl-item"><div class="tl-dot" style="background:#0891b2"></div> Kladnik</div>
+  <div class="tl-item"><div class="tl-dot" style="background:#ca8a04"></div> Koschir</div>
+  <div class="tl-item"><div class="tl-dot" style="background:#6b7280"></div> Urankar</div>
+  <div class="tl-item"><div class="tl-dot" style="background:#92400e"></div> Budnar</div>
+  <div class="tl-item"><div class="tl-dot" style="background:#a3a3a3"></div> Other</div>
+</div>
+
+<!-- ═══════════ HOUSES ROW 1 (SP1–SP4) ═══════════ -->
+<div class="houses-grid">
+
+  <!-- ── SP1 ── -->
+  <div class="house-card" id="sp1">
+    <div class="house-header">
+      <div class="house-num">SP1</div>
+      <div class="house-sa-name">"Vaupetič House"</div>
+    </div>
+    <div class="house-body">
+      <div class="timeline">
+        <div class="tl-entry era-vaupetic">
+          <div><span class="tl-date">~1700</span> <span class="tl-family family-vaupetic">Vaupetič</span></div>
+          <div class="tl-detail">Luca (Perz?) &amp; Ursula Vaup</div>
+          <div class="tl-note">May be Luca Perz who married Ursula Vaup, Apr 1702</div>
+        </div>
+        <div class="tl-entry era-vaupetic">
+          <div><span class="tl-date">~1730s</span></div>
+          <div class="tl-detail">Mathias Vaupetič (b.1707) &amp; Magdalena</div>
+        </div>
+        <div class="tl-entry era-vaupetic">
+          <div><span class="tl-date">~1770s</span></div>
+          <div class="tl-detail">Joseph Vaupetič &amp; <strong>Maria Osredkar</strong> of Bela Peč</div>
+          <div class="tl-note">Maria is a distant cousin to Georg Osredkar (SP3)</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">1827</span> <span class="tl-family family-rems">Rems</span></div>
+          <div class="tl-detail"><strong>Franz Rems</strong> (from SP4) m. Maria Vaupetič</div>
+          <div class="tl-note">Rems from SP4 married into Vaupetič house</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SP2 ── -->
+  <div class="house-card" id="sp2">
+    <div class="house-header">
+      <div class="house-num">SP2</div>
+      <div class="house-sa-name">"Pirc House" — Virgin Mary gable artwork</div>
+    </div>
+    <div class="house-body">
+      <div class="timeline">
+        <div class="tl-entry era-other">
+          <div><span class="tl-date">pre-1688</span> <span class="tl-family family-other">Pirc?</span></div>
+          <div class="tl-note">No Pirc births found — name may predate records</div>
+        </div>
+        <div class="tl-entry era-vaupetic">
+          <div><span class="tl-date">1688</span> <span class="tl-family family-vaupetic">Vaupetič</span></div>
+          <div class="tl-detail">Sebastian Vaup &amp; Elizabeth</div>
+        </div>
+        <div class="tl-entry era-vaupetic">
+          <div><span class="tl-date">1722</span></div>
+          <div class="tl-detail">Laurenti Vaup &amp; Marina Bernoth</div>
+        </div>
+        <div class="tl-entry era-vaupetic">
+          <div><span class="tl-date">~1770s</span></div>
+          <div class="tl-detail">Michael Vaup (b.1752) &amp; Ursula <strong>Primi Rems</strong></div>
+          <div class="tl-note">Ursula was daughter of Primus Rems (SP4)</div>
+        </div>
+        <div class="tl-entry era-vaupetic">
+          <div><span class="tl-date">1827</span></div>
+          <div class="tl-detail"><strong>Georgius Vaupetič</strong> (of Michael)</div>
+        </div>
+        <div class="tl-entry era-vaupetic">
+          <div><span class="tl-date">1860</span></div>
+          <div class="tl-detail">Franz Vaup m. Katharina Bernoth</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SP3 ── -->
+  <div class="house-card direct-line" id="sp3">
+    <div class="house-header">
+      <div class="house-num">SP3 <span class="direct-tag">DIRECT LINE</span></div>
+      <div class="house-sa-name">"Matjas House" — now Budnar House Museum</div>
+    </div>
+    <div class="house-body">
+      <div class="timeline">
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">~1650s</span> <span class="tl-family family-rems">Rems</span></div>
+          <div class="tl-detail">Georg &amp; Agnetis Rems</div>
+          <div class="tl-note">Earliest confirmed — Mathias b.1656</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">~1715</span></div>
+          <div class="tl-detail">Martin &amp; Barbara Rems</div>
+          <div class="tl-note">Identity disputed: son of Lucas (SP4) or Sebastian?</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">~1760s</span></div>
+          <div class="tl-detail">Mathias Rems &amp; <strong>Maria Kregar</strong></div>
+          <div class="tl-note">2nd wife. Maria from Kregarjevo. Helena b. here 1777</div>
+        </div>
+        <div class="tl-entry era-osredkar">
+          <div><span class="tl-date">1796</span> <span class="tl-family family-osredkar">Osredkar</span></div>
+          <div class="tl-detail"><strong>Georg Osredkar</strong> m. Helena Rems</div>
+          <div class="tl-note">Georg from Sovinja Peč (Liukovo). Marriage year.</div>
+        </div>
+        <div class="tl-entry era-osredkar">
+          <div><span class="tl-date">1827</span></div>
+          <div class="tl-detail"><strong>Michael Osredkar</strong> (b. 10 Oct 1801 at SP3, son of Georg &amp; Helena)</div>
+          <div class="tl-note">Listed as SP3 owner in 1827 cadastral survey (bldg #10, now house #5). Legitimate heir; illegitimate branch (Gary's line) displaced.</div>
+        </div>
+        <div class="tl-entry era-osredkar">
+          <div><span class="tl-date">1851</span></div>
+          <div class="tl-detail">Michael (widowed, age 49) m. <strong>Anna Kladnik</strong> (age 27)</div>
+          <div class="tl-note">Anna b. ~1824, parents Lucas Kladnik &amp; Margaretha Rope. 22-year age gap. First wife "Gertrude Mrak?" (uncertain) presumed dead.</div>
+        </div>
+        <div class="tl-entry era-budnar">
+          <div><span class="tl-date">1874</span> <span class="tl-family family-budnar">Budnar</span></div>
+          <div class="tl-detail">Francizka Koschir (SP5) m. a Budnar</div>
+          <div class="tl-note">Budnar family takes over. Now a museum.</div>
+        </div>
+        <div class="tl-entry era-osredkar">
+          <div><span class="tl-date">1892</span></div>
+          <div class="tl-detail"><strong>Katharina Osredkar</strong> (Michael &amp; Anna's daughter, b. ~1852) m. Brun</div>
+          <div class="tl-note">Last documented Osredkar event at SP3 before the property passed out of the family.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SP4 ── -->
+  <div class="house-card" id="sp4">
+    <div class="house-header">
+      <div class="house-num">SP4</div>
+      <div class="house-sa-name">"Šuštar" (shoemaker) — 1/2 Hubler</div>
+    </div>
+    <div class="house-body">
+      <div class="timeline">
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">~1660s</span> <span class="tl-family family-rems">Rems</span></div>
+          <div class="tl-detail">Georg &amp; Margaret Rems</div>
+          <div class="tl-note">Lucas b. Oct 1666. May be same Georg as SP3.</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">1693</span></div>
+          <div class="tl-detail">Lucas Rems &amp; <strong>Helena Kregar</strong></div>
+          <div class="tl-note">Helena from Kregarjevo. Antony b. 1690.</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">1743</span></div>
+          <div class="tl-detail">Primus Rems &amp; Gertrude (Thoma &amp; Agnetis) Rems</div>
+          <div class="tl-note">Gregor &rarr; Thomas &amp; Joseph (Jan's ancestor)</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">1827</span></div>
+          <div class="tl-detail"><strong>Thomas Rems</strong> (of Gregor)</div>
+          <div class="tl-note">Brother Franz moved to SP1 by marriage</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">1879</span></div>
+          <div class="tl-detail">France Rems m. Folona Dolar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SP5 ── -->
+  <div class="house-card" id="sp5">
+    <div class="house-header">
+      <div class="house-num">SP5</div>
+      <div class="house-sa-name">"Rems 1/2 Hubler" — later ZP9</div>
+    </div>
+    <div class="house-body">
+      <div class="timeline">
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">~1710s</span> <span class="tl-family family-rems">Rems</span></div>
+          <div class="tl-detail">Thomas &amp; Agnetis Rems</div>
+          <div class="tl-note">"Overlapping families" problem — two couples with this name</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">~1759</span></div>
+          <div class="tl-detail">Georgius Rems (b.1738) &amp; Miza Clemenz</div>
+          <div class="tl-note">Georgius died young; Miza remarried Luca Raak</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">~1790s</span></div>
+          <div class="tl-detail">Joseph Rems (b.1763) &amp; Gertrud Vaupetič</div>
+          <div class="tl-note">Maria Rems b. 1810 here</div>
+        </div>
+        <div class="tl-entry era-koschir">
+          <div><span class="tl-date">1826</span> <span class="tl-family family-koschir">Koschir</span></div>
+          <div class="tl-detail"><strong>Joseph Koschir</strong> m. Maria Rems</div>
+          <div class="tl-note">From Inf. Palovče. Maria died. He remarried Gertrud Kladnik.</div>
+        </div>
+        <div class="tl-entry era-koschir">
+          <div><span class="tl-date">1827</span></div>
+          <div class="tl-detail"><strong>Joseph Koschir</strong> — 1827 owner</div>
+        </div>
+        <div class="tl-entry era-kladnik">
+          <div><span class="tl-date">~1860s</span> <span class="tl-family family-kladnik">Kladnik</span></div>
+          <div class="tl-note">Daughter Francizka Koschir m. Budnar &rarr; took over SP3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SP6 ── -->
+  <div class="house-card" id="sp6">
+    <div class="house-header">
+      <div class="house-num">SP6</div>
+      <div class="house-sa-name">Oraschim / Urankar House</div>
+    </div>
+    <div class="house-body">
+      <div class="timeline">
+        <div class="tl-entry era-urankar">
+          <div><span class="tl-date">~1657</span> <span class="tl-family family-urankar">Urankar</span></div>
+          <div class="tl-detail">Adamo &amp; Eva Urankar</div>
+          <div class="tl-note">Earliest record. Son Thoma b. 1667.</div>
+        </div>
+        <div class="tl-entry era-urankar">
+          <div><span class="tl-date">~1770s</span></div>
+          <div class="tl-detail">Gregor &amp; Agnetis Urankar</div>
+          <div class="tl-note">8 children over 9 years, including twins</div>
+        </div>
+        <div class="tl-entry era-urankar">
+          <div><span class="tl-date">1801</span></div>
+          <div class="tl-detail">Jacobus &amp; Eva Urankar (m. 1801)</div>
+          <div class="tl-note">Eva d. 1843 age 70 — last Urankar here</div>
+        </div>
+        <div class="tl-entry era-other">
+          <div><span class="tl-date">1827</span> <span class="tl-family family-other">Oraschim</span></div>
+          <div class="tl-detail"><strong>Martin Oraschim</strong></div>
+          <div class="tl-note">No connections backward to SP families. Possibly father of Maria Osredkar's illegitimate children?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SP7 ── -->
+  <div class="house-card" id="sp7">
+    <div class="house-header">
+      <div class="house-num">SP7</div>
+      <div class="house-sa-name">Not in 1827 cadastral survey</div>
+    </div>
+    <div class="house-body">
+      <div class="timeline">
+        <div class="tl-entry era-urankar">
+          <div><span class="tl-date">~1770s</span> <span class="tl-family family-urankar">Urankar</span></div>
+          <div class="tl-detail">Urankar family (last birth 1812)</div>
+          <div class="tl-note">May actually have been at SP6</div>
+        </div>
+        <div class="tl-entry era-other">
+          <div><span class="tl-date">~1827</span> <span class="tl-family family-other">Dollar</span></div>
+          <div class="tl-detail">Dollar family (from Trobeum 2)</div>
+          <div class="tl-note">Begin having children here 1827</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SP8 ── -->
+  <div class="house-card" id="sp8">
+    <div class="house-header">
+      <div class="house-num">SP8</div>
+      <div class="house-sa-name">No cadastral records — possible fire</div>
+    </div>
+    <div class="house-body">
+      <div class="timeline">
+        <div class="tl-entry era-other">
+          <div><span class="tl-date">pre-1796</span> <span class="tl-family family-bernoth">Bernoth</span></div>
+          <div class="tl-detail">Bernoth, Cancilia, Gollob families</div>
+          <div class="tl-note">Moved here from SP1</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">1796</span> <span class="tl-family family-rems">Rems</span></div>
+          <div class="tl-detail">Simon Rems m. Maria Bernoth</div>
+          <div class="tl-note">2 months before Georg Osredkar's marriage</div>
+        </div>
+        <div class="tl-entry era-rems">
+          <div><span class="tl-date">1797–1808</span></div>
+          <div class="tl-detail">Children recorded (1st at SP1, rest here)</div>
+        </div>
+        <div class="tl-entry era-other">
+          <div><span class="tl-date">1808–1858</span> <span class="tl-family family-other">GAP</span></div>
+          <div class="tl-note">No records. Gary suspects house burned down.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════ CROSS-HOUSE MARRIAGES ═══════════ -->
+<div class="cross-links">
+  <h2>Cross-House Marriages &amp; Family Connections</h2>
+  <div class="marriage-grid">
+
+    <div class="marriage-link internal">
+      <div>
+        <div class="houses">SP4 <span class="arrow">&rarr;</span> SP3</div>
+      </div>
+      <div class="desc">
+        <strong>Helena Rems</strong> (b. 1777, SP3/4) m. <strong>Georg Osredkar</strong> <span class="year">1796</span>.
+        Rems house &rarr; Osredkar ownership. The central event in Gary's research.
+      </div>
+    </div>
+
+    <div class="marriage-link internal">
+      <div>
+        <div class="houses">SP4 <span class="arrow">&rarr;</span> SP1</div>
+      </div>
+      <div class="desc">
+        <strong>Franz Rems</strong> (of Gregor, SP4) m. <strong>Maria Vaupetič</strong> (SP1).
+        By <span class="year">1827</span> Franz owns SP1 — a Rems takes the Vaupetič house.
+      </div>
+    </div>
+
+    <div class="marriage-link internal">
+      <div>
+        <div class="houses">SP4 <span class="arrow">&rarr;</span> SP2</div>
+      </div>
+      <div class="desc">
+        <strong>Ursula Primi Rems</strong> (daughter of Primus, SP4) m. <strong>Michael Vaup</strong> (SP2) <span class="year">~1770s</span>.
+        Their son Georgius owned SP2 in 1827.
+      </div>
+    </div>
+
+    <div class="marriage-link internal">
+      <div>
+        <div class="houses">SP5 <span class="arrow">&rarr;</span> SP3</div>
+      </div>
+      <div class="desc">
+        <strong>Francizka Koschir</strong> (SP5, daughter of Joseph &amp; Gertrud Kladnik) m. <strong>Budnar</strong> <span class="year">1874</span>.
+        Budnar family takes over SP3 — it becomes the museum.
+      </div>
+    </div>
+
+    <div class="marriage-link internal">
+      <div>
+        <div class="houses">SP3 <span class="arrow">?</span> SP4</div>
+      </div>
+      <div class="desc">
+        <strong>The Two-Martin question:</strong> If Martin (SP3) is son of Lucas &amp; Helena (SP4), then SP3 and SP4 share <strong>Lucas Rems</strong> as common ancestor. If son of Sebastian, they diverge before the 1620s.
+      </div>
+    </div>
+
+    <div class="marriage-link incoming">
+      <div>
+        <div class="houses">Sovinja Peč <span class="arrow">&rarr;</span> SP3</div>
+      </div>
+      <div class="desc">
+        <strong>Georg Osredkar</strong> (b. 1777, Liukovo) arrived <span class="year">1796</span> to marry Helena Rems.
+        ~2 hours walk. His brother Joseph kept the family homestead.
+      </div>
+    </div>
+
+    <div class="marriage-link incoming">
+      <div>
+        <div class="houses">Bela Peč <span class="arrow">&rarr;</span> SP1/2</div>
+      </div>
+      <div class="desc">
+        <strong>Maria Osredkar</strong> (b. 1777, Bela Peč 3) m. <strong>Joseph Vaupetič</strong> <span class="year">1796</span>.
+        Same year as Georg — both born 1777, both arrived at Palovče in 1796.
+      </div>
+    </div>
+
+    <div class="marriage-link incoming">
+      <div>
+        <div class="houses">Kregarjevo <span class="arrow">&rarr;</span> SP4</div>
+      </div>
+      <div class="desc">
+        <strong>Helena Kregar</strong> m. <strong>Lucas Rems</strong> <span class="year">1693</span>.
+        Earliest Kregar link. Her descendant Maria Kregar also married into Rems (SP3).
+      </div>
+    </div>
+
+    <div class="marriage-link incoming">
+      <div>
+        <div class="houses">Kregarjevo <span class="arrow">&rarr;</span> SP3</div>
+      </div>
+      <div class="desc">
+        <strong>Maria Kregar</strong> (great-niece of Helena) m. <strong>Mathias Rems</strong> <span class="year">1776</span>.
+        Mother of Helena Rems — two generations of Kregar women married Rems men.
+      </div>
+    </div>
+
+    <div class="marriage-link incoming">
+      <div>
+        <div class="houses">Inf. Palovče <span class="arrow">&rarr;</span> SP5</div>
+      </div>
+      <div class="desc">
+        <strong>Joseph Koschir</strong> m. <strong>Maria Rems</strong> (b. 1810, SP5) <span class="year">1826</span>.
+        Married in; owned SP5 by 1827. Outsider surname entering the settlement.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════ KEY INSIGHTS ═══════════ -->
+<div class="insights">
+  <h2>Key Patterns</h2>
+
+  <div class="insight-item">
+    <strong>Rems dominance:</strong> The Rems family appears in SP3, SP4, SP5, SP8 and married into SP1 and SP2. By the 1700s they were the most widespread family in the settlement, with branches at nearly every house.
+  </div>
+
+  <div class="insight-item">
+    <strong>The 1796 double arrival:</strong> Both Georg Osredkar (from Sovinja Peč) and Maria Osredkar (from Bela Peč) married into Palovče in 1796 — the same year, from the same general area, both born in 1777. Whether this was coincidence or arranged remains an open question.
+  </div>
+
+  <div class="insight-item">
+    <strong>SP3 as nexus:</strong> SP3 (the Budnar Museum) is the genealogical crossroads of the entire research. Five family lines converge here: Osredkar, Rems, Kregar, and through connections to other houses, Vaupetič and Pistotnik.
+  </div>
+
+  <div class="insight-item">
+    <strong>Cross-house marriages:</strong> SP4 Rems married into SP1 (Franz), SP2 (Ursula), and SP3 (Helena). The Rems family network connected nearly every house in the settlement through marriage.
+  </div>
+
+  <div class="insight-item">
+    <strong>Vulgo names track houses, not blood:</strong> SA records name houses ("Matjas House," "Šuštar," "Pirc House"), and families took the house's vulgo name when they moved in. The "Rems" house (SP5) was owned by a Koschir by 1827.
+  </div>
+
+  <div class="insight-item">
+    <strong>Outsiders arriving:</strong> Martin Oraschim (SP6) has no known connections to earlier SP families. Joseph Koschir (SP5) came from Inferior Palovče. The Dollar family (SP7) came from Trobeum. These arrivals in the early 1800s mark a shift from the older Rems/Vaupetič/Urankar network.
+  </div>
+</div>
+
+<div style="text-align:center; padding:16px; font-size:12px; color:#8b7a66;">
+  <strong>Last updated 30 April 2026</strong> from project worksheets (incl. Michael SP3, Apr 2026) and the SP Families chart.
+  This is a static snapshot — it is <strong>not</strong> dynamically linked to the Acorn database, though it is consistent with what's in Acorn as of this date.
+  <br>Data from Gary DelNero's research: Early Palovce Chart Notes, SP Families Chart, and 1827 Habsburg Cadastral Survey.
+  <br>See also: <a href="index.html" style="color:#2563eb;">Interactive Places Map</a>
+</div>
+
+</div>
+</body>
+</html>

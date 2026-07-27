@@ -1,0 +1,866 @@
+{
+  "meta": {
+    "title": "Osredkar / Rems / Preskar / Pistotnik Places",
+    "subtitle": "Place data for the Osredkar/Rems/Preskar/Pistotnik/Vaupetič family research. Regenerate by querying Acorn places via Claude Code.",
+    "defaultCenter": [
+      46.22,
+      14.67
+    ],
+    "defaultZoom": 12,
+    "chipMinZoom": 13
+  },
+  "tracks": {
+    "homestead": {
+      "label": "Homestead",
+      "color": "#92400e",
+      "colorByStatus": false,
+      "radius": 7
+    },
+    "village": {
+      "label": "Village",
+      "color": "#1d4ed8",
+      "colorByStatus": false,
+      "radius": 9
+    },
+    "parish": {
+      "label": "Parish",
+      "color": "#7c3aed",
+      "colorByStatus": false,
+      "radius": 10
+    },
+    "town": {
+      "label": "Town/City",
+      "color": "#0f766e",
+      "colorByStatus": false,
+      "radius": 12
+    },
+    "address": {
+      "label": "Address",
+      "color": "#b91c1c",
+      "colorByStatus": false,
+      "radius": 5
+    }
+  },
+  "stops": [
+    {
+      "id": "0010073f-a46a-4331-b35b-e9ca9dabaea9",
+      "name": "Vranja Peč",
+      "lat": 46.2106,
+      "lng": 14.6717,
+      "track": "parish",
+      "fullPath": "Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar",
+        "Rems",
+        "Vaupetič"
+      ],
+      "description": "Parish church serving Zgornje Palovče and surrounding villages. Primary source of vital records (births, marriages, deaths) for the Osredkar, Rems, and Vaupetič families."
+    },
+    {
+      "id": "5ac412d8-7dea-46b0-96a8-af5b9f6429a1",
+      "name": "Šmartno v Tuhinju",
+      "lat": 46.2156,
+      "lng": 14.7334,
+      "track": "parish",
+      "fullPath": "Šmartno v Tuhinju, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar"
+      ],
+      "description": "Parish in the Tuhinj valley. Source of records for the Osredkar family at Sovinja Peč (Liukovo) — Georg Osredkar's birthplace."
+    },
+    {
+      "id": "1884612a-5b15-4459-9356-250bbbf13e99",
+      "name": "Sela pri Kamniku",
+      "lat": 46.2376,
+      "lng": 14.6855,
+      "track": "parish",
+      "fullPath": "Sela pri Kamniku, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Pistotnik",
+        "Osredkar"
+      ],
+      "description": "Parish near Kamnik. Source of records for the Pistotnik/Osredkar family at Bela Peč."
+    },
+    {
+      "id": "0a951f17-343e-4c6c-b0e3-8d51a216200f",
+      "name": "Kamnik (Stein)",
+      "lat": 46.2257,
+      "lng": 14.6119,
+      "track": "town",
+      "fullPath": "Kamnik, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar",
+        "Grill"
+      ],
+      "description": "Market town where the illegitimate Osredkar branch settled after displacement from Palovče in the 1860s. Mathias Osredkar moved through multiple addresses here. Also a parish with vital records."
+    },
+    {
+      "id": "f4ebbe02-236e-4b10-a266-2bfd7999bba9",
+      "name": "Zgornje Palovče",
+      "lat": 46.2127972,
+      "lng": 14.6491611,
+      "track": "village",
+      "fullPath": "Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "highlight": true,
+      "families": [
+        "Osredkar",
+        "Rems",
+        "Vaupetič",
+        "Kladnik",
+        "Urankar",
+        "Oraschim"
+      ],
+      "description": "\"Superior Palovče\" — a settlement of ~8 homes in the hills above Kamnik. Center of the research: Georg Osredkar and Helena Rems settled at SP3 in 1796. Houses SP1–SP8 identified in the 1827 cadastral survey. Pin corrected 2026-07-26 to the village's actual surveyed coordinates (elevation 656.6m) per Wikipedia; SP1–SP8 below remain approximate placements around this real center."
+    },
+    {
+      "id": "d287fd32-b472-4ea3-a2a5-cc683a5c3683",
+      "name": "Bela Peč",
+      "lat": 46.2493,
+      "lng": 14.7176,
+      "track": "village",
+      "fullPath": "Bela Peč, Sela pri Kamniku, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Pistotnik",
+        "Osredkar"
+      ],
+      "description": "Village in the Tuhinj valley. Site of the Osredek farm (Bela Peč 3), where the Pistotnik family married into the Osredkar name. Maria Osredkar (b. 1777) was born here. ~2 hours walk from Palovče."
+    },
+    {
+      "id": "7e74ab7e-4c37-4723-a3c1-59235eb04d12",
+      "name": "Sovinja Peč",
+      "lat": 46.2554,
+      "lng": 14.7013,
+      "track": "village",
+      "fullPath": "Sovinja Peč, Šmartno v Tuhinju, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar"
+      ],
+      "description": "Village in the Tuhinj valley. Site of Liukovo homestead (SP5) where Georg Osredkar was born in 1777. His father Martinus Osredkar vulgo Liuk farmed here. ~30 min walk from Bela Peč, ~2 hours from Palovče. WWII tragedy: partisans killed four family members here."
+    },
+    {
+      "id": "fd69d6cc-b58c-4a69-b8a1-717e45fbeec5",
+      "name": "Kregarjevo",
+      "lat": 46.2649,
+      "lng": 14.6015,
+      "track": "village",
+      "fullPath": "Kregarjevo, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Kregar"
+      ],
+      "description": "Village north of Kamnik. Home of the Kregar family. Maria Kregar (Helena Rems's mother) came from here, as did her great-grandmother Helena Kregar."
+    },
+    {
+      "id": "1e702c02-710b-4e5c-8618-486cf6d03e00",
+      "name": "Bresje (Bresia)",
+      "lat": 46.235,
+      "lng": 14.58,
+      "track": "village",
+      "fullPath": "Bresje (Bresia), Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Prelesnik"
+      ],
+      "description": "Village near Kamnik. Birthplace of Apollonia Prelesnik (b. 1728), who married Joseph Pistotnik as his second wife at Bela Peč 3. Prelesnik family later found in Grabon in the 1825 cadastral survey."
+    },
+    {
+      "id": "b0a5edeb-b355-4826-a886-d127fc728dcc",
+      "name": "Gabria (Gabrje)",
+      "lat": 46.05,
+      "lng": 14.4,
+      "track": "village",
+      "fullPath": "Gabria (Gabrje), Carniola (Kranjska), Slovenia",
+      "families": [
+        "Pistotnik"
+      ],
+      "description": "Village west of Ljubljana. Origin of Mathias Pistotnik, father of Joseph Pistotnik who married into the Osredkar farm at Bela Peč 3 in 1730. Completely unresearched — parish records could extend the Pistotnik line significantly."
+    },
+    {
+      "id": "ca251813-1bd3-44e4-b285-ba6b53a9d32c",
+      "name": "Podsreda",
+      "lat": 46.0397,
+      "lng": 15.5898,
+      "track": "village",
+      "fullPath": "Podsreda, Styria (Štajerska), Slovenia",
+      "families": [
+        "Preskar"
+      ],
+      "description": "Village in the Kozjansko region of eastern Slovenia (Styria, Maribor diocese). Homeland of the Preskar family. Maria Preskar married Frank Osredkar — over 100 km from Kamnik, in a completely different region. They likely met through a Slovenian expatriate community in Bosnia."
+    },
+    {
+      "id": "7ec9a12a-ff00-4783-9656-8fc11908eeaf",
+      "name": "Sarajevo",
+      "lat": 43.8486,
+      "lng": 18.3564,
+      "track": "town",
+      "fullPath": "Sarajevo, Bosnia and Herzegovina",
+      "families": [
+        "Osredkar",
+        "Preskar"
+      ],
+      "description": "Capital of Bosnia-Herzegovina (then Habsburg territory). Frank Osredkar emigrated here from Kamnik in the 1890s. He met Maria Preskar from Podsreda through the Slovenian expatriate community. Their marriage record has not been found."
+    },
+    {
+      "id": "f70938c4-d253-46b9-b5de-1fecc97e4fa0",
+      "name": "Zenica",
+      "lat": 44.2017,
+      "lng": 17.904,
+      "track": "town",
+      "fullPath": "Zenica, Bosnia and Herzegovina",
+      "families": [
+        "Osredkar",
+        "Preskar"
+      ],
+      "description": "Industrial town in Bosnia. Austro-Hungarian industrial expansion after 1878 drew Slovenian workers here. Connected to the Osredkar/Preskar emigration story."
+    },
+    {
+      "id": "dd38fbf5-ef5c-4dc0-8160-56845a7affa7",
+      "name": "SP1 — Vaupetič House",
+      "lat": 46.2122009,
+      "lng": 14.648729,
+      "track": "homestead",
+      "fullPath": "SP1 — Vaupetič House, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Rems",
+        "Vaupetič"
+      ],
+      "description": "SA name: \"Vaupetič House\". 1827 owner: Franz Rems. Pin re-plotted 2026-07-26 from Gary's annotated 1827 cadastral map (bldgs 7 & 8, south of SP2), anchored to SP3's real coordinates — approximate, not surveyed.",
+      "events": [
+        {
+          "date": "~1700",
+          "dateSort": "1700",
+          "family": "Vaupetič",
+          "text": "Luca (Perz?) & Ursula Vaup — May be Luca Perz who married Ursula Vaup, Apr 1702"
+        },
+        {
+          "date": "~1730s",
+          "dateSort": "1730",
+          "family": "Vaupetič",
+          "text": "Mathias Vaupetič (b.1707) & Magdalena"
+        },
+        {
+          "date": "~1770s",
+          "dateSort": "1770",
+          "family": "Vaupetič",
+          "text": "Joseph Vaupetič & Maria Osredkar of Bela Peč — Maria is a distant cousin to Georg Osredkar (SP3)"
+        },
+        {
+          "date": "1827",
+          "dateSort": "1827",
+          "family": "Rems",
+          "text": "Franz Rems (from SP4) m. Maria Vaupetič — Rems from SP4 married into Vaupetič house"
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp1",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "e55e4820-58a8-486c-82bd-07ee8ff74e9e",
+      "name": "SP2 — Pirc House",
+      "lat": 46.2130126,
+      "lng": 14.6486715,
+      "track": "homestead",
+      "fullPath": "SP2 — Pirc House, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Vaupetič"
+      ],
+      "description": "SA name: \"Pirc House\" — Virgin Mary gable artwork. 1827 owner: Georgius Vaupetič. Pin set 2026-07-26 to modern house #2 (OSM), matching Gary's note that this house is next door to the Budnar Museum House — moderate confidence, as he also notes possible renumbering.",
+      "events": [
+        {
+          "date": "pre-1688",
+          "dateSort": "1680",
+          "family": "Pirc",
+          "text": "Pirc? (house name) — No Pirc births found — name may predate records"
+        },
+        {
+          "date": "1688",
+          "dateSort": "1688",
+          "family": "Vaupetič",
+          "text": "Sebastian Vaup & Elizabeth"
+        },
+        {
+          "date": "1722",
+          "dateSort": "1722",
+          "family": "Vaupetič",
+          "text": "Laurenti Vaup & Marina Bernoth"
+        },
+        {
+          "date": "~1770s",
+          "dateSort": "1770",
+          "family": "Vaupetič",
+          "text": "Michael Vaup (b.1752) & Ursula Primi Rems — Ursula was daughter of Primus Rems (SP4)"
+        },
+        {
+          "date": "1827",
+          "dateSort": "1827",
+          "family": "Vaupetič",
+          "text": "Georgius Vaupetič (of Michael)"
+        },
+        {
+          "date": "1860",
+          "dateSort": "1860",
+          "family": "Vaupetič",
+          "text": "Franz Vaup m. Katharina Bernoth"
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp2",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "00583a51-05ba-4924-a4e1-512790086eda",
+      "name": "SP3 — Budnar House Museum",
+      "lat": 46.2130099,
+      "lng": 14.649508,
+      "track": "homestead",
+      "fullPath": "SP3 — Budnar House Museum (Matjas House), Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "highlight": true,
+      "families": [
+        "Osredkar",
+        "Rems"
+      ],
+      "description": "SA name: \"Matjas House\" — now the Budnar House Museum. 1827 owner: Michael Osredkar. DIRECT LINE — the family homestead for Gary's research. Pin corrected 2026-07-26 to the real address, Zgornje Palovče 5, confirmed via Google Maps listing and OSM building data.",
+      "events": [
+        {
+          "date": "~1650s",
+          "dateSort": "1650",
+          "family": "Rems",
+          "text": "Georg & Agnetis Rems — Earliest confirmed — Mathias b.1656"
+        },
+        {
+          "date": "~1715",
+          "dateSort": "1715",
+          "family": "Rems",
+          "text": "Martin & Barbara Rems — Identity disputed: son of Lucas (SP4) or Sebastian?"
+        },
+        {
+          "date": "~1760s",
+          "dateSort": "1760",
+          "family": "Rems",
+          "text": "Mathias Rems & Maria Kregar — 2nd wife. Maria from Kregarjevo. Helena b. here 1777"
+        },
+        {
+          "date": "1796",
+          "dateSort": "1796",
+          "family": "Osredkar",
+          "text": "Georg Osredkar m. Helena Rems — Georg from Sovinja Peč (Liukovo). Marriage year."
+        },
+        {
+          "date": "1827",
+          "dateSort": "1827",
+          "family": "Osredkar",
+          "text": "Michael Osredkar (b. 10 Oct 1801 at SP3, son of Georg & Helena) — Listed as SP3 owner in 1827 cadastral survey (bldg #10, now house #5). Legitimate heir; illegitimate branch (Gary's line) displaced."
+        },
+        {
+          "date": "1851",
+          "dateSort": "1851",
+          "family": "Osredkar",
+          "text": "Michael (widowed, age 49) m. Anna Kladnik (age 27) — Anna b. ~1824, parents Lucas Kladnik & Margaretha Rope. 22-year age gap. First wife \"Gertrude Mrak?\" (uncertain) presumed dead."
+        },
+        {
+          "date": "1874",
+          "dateSort": "1874",
+          "family": "Budnar",
+          "text": "Francizka Koschir (SP5) m. a Budnar — Budnar family takes over. Now a museum."
+        },
+        {
+          "date": "1892",
+          "dateSort": "1892",
+          "family": "Osredkar",
+          "text": "Katharina Osredkar (Michael & Anna's daughter, b. ~1852) m. Brun — Last documented Osredkar event at SP3 before the property passed out of the family."
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp3",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "d7e4c302-709e-42eb-aada-ac475860fc98",
+      "name": "SP4 — Šuštar House",
+      "lat": 46.2136839,
+      "lng": 14.650287,
+      "track": "homestead",
+      "fullPath": "SP4 — Šuštar House, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Rems"
+      ],
+      "description": "SA name: \"Šuštar\" (shoemaker), 1/2 Hubler. 1827 owner: Thomas Rems. Pin re-plotted 2026-07-26 from Gary's annotated 1827 cadastral map (bldgs 11-13, northeast of SP3 across the road), anchored to SP3's real coordinates — approximate, not surveyed.",
+      "events": [
+        {
+          "date": "~1660s",
+          "dateSort": "1660",
+          "family": "Rems",
+          "text": "Georg & Margaret Rems — Lucas b. Oct 1666. May be same Georg as SP3."
+        },
+        {
+          "date": "1693",
+          "dateSort": "1693",
+          "family": "Rems",
+          "text": "Lucas Rems & Helena Kregar — Helena from Kregarjevo. Antony b. 1690."
+        },
+        {
+          "date": "1743",
+          "dateSort": "1743",
+          "family": "Rems",
+          "text": "Primus Rems & Gertrude (Thoma & Agnetis) Rems — Gregor → Thomas & Joseph (Jan's ancestor)"
+        },
+        {
+          "date": "1827",
+          "dateSort": "1827",
+          "family": "Rems",
+          "text": "Thomas Rems (of Gregor) — Brother Franz moved to SP1 by marriage"
+        },
+        {
+          "date": "1879",
+          "dateSort": "1879",
+          "family": "Rems",
+          "text": "France Rems m. Folona Dolar"
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp4",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "4d0e4a3d-2679-43d1-aa9a-de546b493a30",
+      "name": "SP5 — Rems House",
+      "lat": 46.2134589,
+      "lng": 14.651585,
+      "track": "homestead",
+      "fullPath": "SP5 — Rems House, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Koschir",
+        "Rems",
+        "Kladnik"
+      ],
+      "description": "SA name: \"Rems 1/2 Hubler\", later ZP9. 1827 owner: Joseph Koschir. Pin re-plotted 2026-07-26 from Gary's annotated 1827 cadastral map (bldgs 14, 15, 18, east of SP4 between SP4 and SP6), anchored to SP3's real coordinates — approximate, not surveyed.",
+      "events": [
+        {
+          "date": "~1710s",
+          "dateSort": "1710",
+          "family": "Rems",
+          "text": "Thomas & Agnetis Rems — \"Overlapping families\" problem — two couples with this name"
+        },
+        {
+          "date": "~1759",
+          "dateSort": "1759",
+          "family": "Rems",
+          "text": "Georgius Rems (b.1738) & Miza Clemenz — Georgius died young; Miza remarried Luca Raak"
+        },
+        {
+          "date": "~1790s",
+          "dateSort": "1790",
+          "family": "Rems",
+          "text": "Joseph Rems (b.1763) & Gertrud Vaupetič — Maria Rems b. 1810 here"
+        },
+        {
+          "date": "1826",
+          "dateSort": "1826",
+          "family": "Koschir",
+          "text": "Joseph Koschir m. Maria Rems — From Inf. Palovče. Maria died. He remarried Gertrud Kladnik."
+        },
+        {
+          "date": "1827",
+          "dateSort": "1827",
+          "family": "Koschir",
+          "text": "Joseph Koschir — 1827 owner"
+        },
+        {
+          "date": "~1860s",
+          "dateSort": "1860",
+          "family": "Kladnik",
+          "text": "Kladnik family — Daughter Francizka Koschir m. Budnar → took over SP3"
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp5",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "90c0fca5-0d8c-411c-bc26-e52f51ba35a2",
+      "name": "SP6 — Oraschim/Urankar House",
+      "lat": 46.2129199,
+      "lng": 14.652493,
+      "track": "homestead",
+      "fullPath": "SP6 — Oraschim/Urankar House, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Oraschim",
+        "Urankar"
+      ],
+      "description": "Oraschim / Urankar House. 1827 owner: Martin Oraschim. Pin re-plotted 2026-07-26 from Gary's annotated 1827 cadastral map (bldgs 16-17, southeast end of the cluster), anchored to SP3's real coordinates — approximate, not surveyed.",
+      "events": [
+        {
+          "date": "~1657",
+          "dateSort": "1657",
+          "family": "Urankar",
+          "text": "Adamo & Eva Urankar — Earliest record. Son Thoma b. 1667."
+        },
+        {
+          "date": "~1770s",
+          "dateSort": "1770",
+          "family": "Urankar",
+          "text": "Gregor & Agnetis Urankar — 8 children over 9 years, including twins"
+        },
+        {
+          "date": "1801",
+          "dateSort": "1801",
+          "family": "Urankar",
+          "text": "Jacobus & Eva Urankar (m. 1801) — Eva d. 1843 age 70 — last Urankar here"
+        },
+        {
+          "date": "1827",
+          "dateSort": "1827",
+          "family": "Oraschim",
+          "text": "Martin Oraschim — No connections backward to SP families. Possibly father of Maria Osredkar's illegitimate children?"
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp6",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "5daffc7e-27d9-41f0-a048-762f43b01317",
+      "name": "SP7",
+      "lat": 46.2120972,
+      "lng": 14.6523611,
+      "track": "homestead",
+      "fullPath": "SP7, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Urankar",
+        "Dollar"
+      ],
+      "description": "Not in the 1827 cadastral survey.",
+      "events": [
+        {
+          "date": "~1770s",
+          "dateSort": "1770",
+          "family": "Urankar",
+          "text": "Urankar family (last birth 1812) — May actually have been at SP6"
+        },
+        {
+          "date": "~1827",
+          "dateSort": "1827",
+          "family": "Dollar",
+          "text": "Dollar family (from Trobeum 2) — Begin having children here 1827"
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp7",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "6a3db60a-bbf9-4e0d-9f63-e022a1efb8fa",
+      "name": "SP8",
+      "lat": 46.2121109,
+      "lng": 14.648924,
+      "track": "homestead",
+      "fullPath": "SP8, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Rems",
+        "Bernoth"
+      ],
+      "description": "No cadastral records — Gary suspects the house burned down. Pin nudged 2026-07-26 next to SP1: the house-number crosswalk shows SP8's pre-1800 number was \"SP1,\" suggesting it may have stood near today's SP1 site — speculative, not a confirmed location.",
+      "events": [
+        {
+          "date": "pre-1796",
+          "dateSort": "1790",
+          "family": "Bernoth",
+          "text": "Bernoth, Cancilia, Gollob families — Moved here from SP1"
+        },
+        {
+          "date": "1796",
+          "dateSort": "1796",
+          "family": "Rems",
+          "text": "Simon Rems m. Maria Bernoth — 2 months before Georg Osredkar's marriage"
+        },
+        {
+          "date": "1797–1808",
+          "dateSort": "1797",
+          "family": "Rems",
+          "text": "Children recorded (1st at SP1, rest here)"
+        },
+        {
+          "date": "1808–1858",
+          "dateSort": "1808",
+          "family": "Rems",
+          "text": "No records — gap — Gary suspects house burned down."
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp8",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "e582b148-b50f-425d-8a4f-ea489a8399ac",
+      "name": "SP9",
+      "lat": 46.2127972,
+      "lng": 14.6491611,
+      "track": "homestead",
+      "fullPath": "SP9, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Bernoth",
+        "Vaupetitsch",
+        "Orazem"
+      ],
+      "description": "Not identified in the 1827 cadastral survey. Gary: \"Cannot connect SP9 to ZP5, except by elimination and conjecture... may have been demolished, or an error.\" Location genuinely unknown — pin placed 2026-07-26 at the village center as a placeholder, not a real position.",
+      "events": [
+        {
+          "date": "1810",
+          "dateSort": "1810",
+          "family": "Bernoth",
+          "text": "Joannes Bernoth (Trob 3) m. Maria Vaupetitsch — children Mathias, Josephus, Catharina born here 1811–1814"
+        },
+        {
+          "date": "1866–1873",
+          "dateSort": "1866",
+          "family": "Orazem",
+          "text": "Illegitimate children of Apollonia Orazem born here (Gregorius, Josephus) — she had earlier children at SP6"
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp9",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "2c705c9f-8c1a-49a9-b46e-f0c3f14f1df5",
+      "name": "SP10",
+      "lat": 46.2121119,
+      "lng": 14.6498975,
+      "track": "homestead",
+      "fullPath": "SP10, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar",
+        "Brun"
+      ],
+      "description": "Not identified in the 1827 cadastral survey. Gary's hypothesis: \"the large structure just south of SP3 and 4.\" Pin placed 2026-07-26 per that hypothesis — speculative, not surveyed. Gary's own notes are inconsistent on whether this house is \"ZP7\" or \"ZP10\" in the post-1900 renumbering.",
+      "events": [
+        {
+          "date": "1864",
+          "dateSort": "1864",
+          "family": "Osredkar",
+          "text": "Michael Osredkar dies at SP3 — widow Anna Kladnik and children (Franz, Ursula, Maria) apparently move here"
+        },
+        {
+          "date": "1892",
+          "dateSort": "1892",
+          "family": "Brun",
+          "text": "Katharina Osredkar (Michael & Anna's daughter) m. Bartholem Brun — she \"moved to ZP10\" per SA records"
+        }
+      ],
+      "links": [
+        {
+          "href": "sp-houses.html#sp10",
+          "label": "View full house history →"
+        }
+      ]
+    },
+    {
+      "id": "ee25a737-62e8-4198-b35c-541b602c2aff",
+      "name": "Bela Peč 3 — Osredek Farm",
+      "lat": 46.2496,
+      "lng": 14.7172,
+      "track": "homestead",
+      "fullPath": "Bela Peč 3 — Osredek Farm, Bela Peč, Sela pri Kamniku, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar",
+        "Pistotnik"
+      ],
+      "description": "Buildings 73–75 in the 1827 cadastral survey. Owned by Stephan Pistotnik by 1827. The Pistotnik family married into the Osredkar name here when Joseph Pistotnik wed Elizabeth Osredkar in 1730. Their son Blais used both names. Maria Osredkar (b. 1777, married Joseph Vaupetič) was born here."
+    },
+    {
+      "id": "abd91587-fd1b-4f79-8f8d-6072e4dff807",
+      "name": "Sovinja Peč 5 — Liukovo",
+      "lat": 46.2558,
+      "lng": 14.7009,
+      "track": "homestead",
+      "fullPath": "Sovinja Peč 5 — Liukovo, Sovinja Peč, Šmartno v Tuhinju, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar"
+      ],
+      "description": "Building 51, cadastral municipality Znojile. Georg Osredkar born here 23 Mar 1777 to Martinus Osredkar vulgo Liuk & Barbara Kuhar. The vulgo name \"Liuk\" comes from Liukovo. Owned by Georg's brother Joseph in 1827. ~30 min walk from Bela Peč 3."
+    },
+    {
+      "id": "597a3a8f-4e55-4af2-949f-2aefe656ab59",
+      "name": "Steinbüchel 17",
+      "lat": 46.22315,
+      "lng": 14.606,
+      "track": "address",
+      "fullPath": "Steinbüchel 17, Kamnik, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar"
+      ],
+      "description": "One of Mathias Osredkar's Kamnik addresses. Part of the illegitimate branch's urban migration from Palovče. Pin re-plotted 2026-07-26 near Zaprice Castle (bldg 282.5 per cadastral list; Gary's map labels it \"Mathies Osr before marriage, 1865\") — approximate, not surveyed."
+    },
+    {
+      "id": "1f8b98bb-61a5-4ae1-a68a-ddb39bed4aae",
+      "name": "Stadt Stein 28",
+      "lat": 46.2249,
+      "lng": 14.6122,
+      "track": "address",
+      "fullPath": "Stadt Stein 28, Kamnik, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar"
+      ],
+      "description": "Mathias Osredkar's address in the town center of Kamnik (Stein). Pin re-plotted 2026-07-26 near the Stein 78-80 cluster, just north of Mali Grad castle — this is where his first wife Maria Grill died in 1874, in the same neighborhood as his siblings, just before his move to Stein 72. No cadastral building number found; approximate."
+    },
+    {
+      "id": "59683bbf-c6dc-48e0-b36b-e05fed2f1eb9",
+      "name": "Stein 72",
+      "lat": 46.2255,
+      "lng": 14.6124,
+      "track": "address",
+      "fullPath": "Stein 72, Kamnik, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar"
+      ],
+      "description": "Mathias Osredkar's address. The multiple address changes suggest economic instability. Pin re-plotted 2026-07-26 to bldg 97 (\"the plaza above\" the Stein 78-80 cluster), near Mali Grad castle — approximate, not surveyed."
+    },
+    {
+      "id": "27d50635-6508-4dd9-b417-48dc3fdb7547",
+      "name": "Stein 78–80",
+      "lat": 46.2251,
+      "lng": 14.6119,
+      "track": "address",
+      "fullPath": "Stein 78–80, Kamnik, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar"
+      ],
+      "description": "Three of Georg & Helena's illegitimate grandchildren — Maria, Johann, and Mathias — lived on this same short street in Kamnik. Clustering suggests mutual support despite displacement. Pin re-plotted 2026-07-26 just north of Mali Grad castle (bldgs 127, 130, ~133 per Gary's account) — approximate, not surveyed."
+    },
+    {
+      "id": "f5fdc876-597e-4d6b-8d3e-5db4978d0708",
+      "name": "Schüttenbach 3",
+      "lat": 46.2265,
+      "lng": 14.606,
+      "track": "address",
+      "fullPath": "Schüttenbach 3, Kamnik, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar"
+      ],
+      "description": "Mathias Osredkar's address. Near Grabon where the Prelesnik family lived — a possible Pistotnik connection. Pin corrected 2026-07-26 to bldg 298 in the Zale/Sallenberg neighborhood by the river — Gary's map shows two \"Schutt 3\" labels; bldg 298 (ours) is by the river, not the bldg 71 townhouse next to Mali Grad that an earlier draft mistook it for. Approximate, not surveyed."
+    },
+    {
+      "id": "a1b2c3d4-spitalic-001",
+      "name": "Špitalič pri Motniku",
+      "lat": 46.2833,
+      "lng": 14.8167,
+      "track": "village",
+      "fullPath": "Špitalič pri Motniku, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Pistotnik"
+      ],
+      "description": "Village northeast of Kamnik. Mihael Pistotnik (b. ~1735) moved here from Bela Peč 3 after marrying Uršula Pikel. House name \"Clemen.\" The Špitalič branch spans 6 generations to the 20th century. WWII: Anton Klemen (husband of Marija Pistotnik) was deported to Dachau; his son Anton Jr. was killed at Vransko."
+    },
+    {
+      "id": "a1b2c3d4-mozirje-001",
+      "name": "Mozirje",
+      "lat": 46.3397,
+      "lng": 14.9603,
+      "track": "town",
+      "fullPath": "Mozirje, Styria (Štajerska), Slovenia",
+      "families": [
+        "Pistotnik"
+      ],
+      "description": "Town in the Upper Savinja Valley. Franc Pistotnik (Florjan's son) moved here in 1924 with wife Pavla Bergant. He was deported from here to Bosnia in 1944, eventually reaching Jasenovac concentration camp."
+    },
+    {
+      "id": "a1b2c3d4-jasenovac-001",
+      "name": "Jasenovac",
+      "lat": 45.2686,
+      "lng": 16.9317,
+      "track": "town",
+      "fullPath": "Jasenovac, Independent State of Croatia (WWII)",
+      "families": [
+        "Pistotnik"
+      ],
+      "description": "Site of the Jasenovac concentration camp complex, operated by the Ustaša regime 1941-1945. Franc Pistotnik (b. 1892, Špitalič) died here on 9 May 1945, just as the war ended. He was sentenced to 2 years by an Ustaša court after arrest by Germans. Last message received 8 Feb 1945."
+    },
+    {
+      "id": "a1b2c3d4-dachau-001",
+      "name": "Dachau",
+      "lat": 48.2603,
+      "lng": 11.4342,
+      "track": "town",
+      "fullPath": "Dachau, Bavaria, Germany",
+      "families": [
+        "Pistotnik"
+      ],
+      "description": "Site of the Dachau concentration camp. Anton Klemen (b. 1883, husband of Marija Pistotnik of the Špitalič branch) died here on 30 March 1945, just weeks before liberation. His son Anton Jr. had been killed at Vransko 3 months earlier."
+    },
+    {
+      "id": "a1b2c3d4-ravne10-001",
+      "name": "Ravne 10",
+      "lat": 46.232,
+      "lng": 14.605,
+      "track": "address",
+      "fullPath": "Ravne 10 (Dumf Rauno 10), Kamnik, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Rems",
+        "Kregar"
+      ],
+      "description": "Home of Gregor Rems & Helena Kregar (Gerkman). Their son Bartholomeus married Apollonia Grill in the 1865 double wedding. Collateral Rems branch — NOT from the SP3/SP4 Palovče Rems line. Gregor came from Sidrash Lokalin."
+    },
+    {
+      "id": "a1b2c3d4-cleveland-001",
+      "name": "Cleveland, Ohio",
+      "lat": 41.4993,
+      "lng": -81.6944,
+      "track": "town",
+      "fullPath": "Cleveland, Ohio, USA",
+      "families": [
+        "Osredkar",
+        "Preskar"
+      ],
+      "description": "Destination of the Osredkar family immigration ~1903. Frank & Maria Preskar Osredkar settled here with their four children. Slovenian immigrant community. Maria died 10 Oct 1927; Frank died 23 Mar 1946. Daughter Sophie married Frank Laurich — Gary DelNero's grandmother."
+    },
+    {
+      "id": "ff1505e2-fa8d-47aa-aba3-ba91d49b0d17",
+      "name": "Grabon 14",
+      "lat": 46.2278,
+      "lng": 14.6045,
+      "track": "address",
+      "fullPath": "Grabon 14, Kamnik, Carniola (Kranjska), Slovenia",
+      "families": [
+        "Osredkar",
+        "Prelesnik"
+      ],
+      "description": "Mathias Osredkar's last known Kamnik address (his second wife Maria Gradische died here, 1882). Building 203, adjacent to a small park fronting the river, near St Joseph's Church property. Johann Prelesnik lived a few doors north (Graben 21, bldg 210). Pin re-plotted 2026-07-26 near the Žale neighborhood along the river — a rougher estimate than the other Kamnik addresses, not surveyed."
+    }
+  ],
+  "familyColors": {
+    "Osredkar": "#2563eb",
+    "Rems": "#dc2626",
+    "Vaupetič": "#059669",
+    "Pistotnik": "#9333ea",
+    "Preskar": "#f97316",
+    "Kregar": "#10b981",
+    "Prelesnik": "#f59e0b",
+    "Grill": "#6366f1"
+  }
+}
