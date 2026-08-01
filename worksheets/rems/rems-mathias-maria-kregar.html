@@ -181,10 +181,11 @@ Unit Worksheet: Mathias Rems (b. Feb 1739) &amp; Wives</h1>
 Zgornje Palovce SP4 (later Rabensburg 3) <strong>Parish:</strong> Vranja
 Pec / Kamnik <strong>Time Period:</strong> 1739–1798 <strong>Worksheet
 Created:</strong> February 2026 <strong>Last Updated:</strong>
-2026-05-16 — Two-Mathias hypothesis resolved (PROBABLE); worksheet
-restructured around the confirmed identity <strong>Data
-Confidence:</strong> HIGH for the resolved identity; Mathias’s
-grandparents (Martinus’s own parents) remain uncertain</p>
+2026-08-01 — Acorn database corrected to actually match this worksheet
+(see note below); 2026-05-16 — Two-Mathias hypothesis resolved
+(PROBABLE); worksheet restructured around the confirmed identity
+<strong>Data Confidence:</strong> HIGH for the resolved identity;
+Mathias’s grandparents (Martinus’s own parents) remain uncertain</p>
 <hr />
 <h2 id="two-mathias-hypothesis-resolved-2026-05-16">✓ TWO-MATHIAS
 HYPOTHESIS RESOLVED (2026-05-16)</h2>
@@ -193,6 +194,21 @@ Martinus &amp; Barbara Rems</strong>, who married Ursula Berlz in 1761
 and then Maria Kregar in 1776 after Ursula’s death. <strong>He is Helena
 Rems’s father</strong> (Helena b. 9 May 1777 → m. Georg Osredkar 1796 →
 mother of the Osredkar direct line).</p>
+<p><strong>⚠️ Database drift found and fixed 2026-08-01:</strong>
+despite this worksheet being correct since May, Acorn’s actual
+structured family record for the Maria Kregar marriage — the one that
+determines who Helena’s father <em>is</em> in the database, not just in
+prose — was still pointing at the <strong>rejected</strong> Mathias
+(b.1733, Antony’s son) the entire time. Two related claims (this
+Mathias’s birth date, and Ursula Berlz’s death date) also still held
+their old pre-resolution values despite their own notes describing the
+May refinement. All three are now corrected: new family
+<code>35c9c618</code> (Mathias × Maria Kregar) with all 5 children moved
+over, old wrong family <code>c42a792c</code> deleted, both claims
+replaced with correct values, and person <code>81326ca2</code>’s (the
+rejected Mathias) notes corrected to stop asserting the debunked
+marriage. See hypothesis <code>ccb3af62</code>’s notes for the full
+account.</p>
 <p><strong>An older draft of this worksheet split him into two candidate
 identities and treated Antony &amp; Catharina’s son (b. 9 Feb 1733) as
 the more likely father.</strong> That identification has been
@@ -586,12 +602,21 @@ href="https://data.matricula-online.eu/en/slovenia/ljubljana/kamnik/00712/?pg=54
 </tr>
 <tr>
 <td>6</td>
-<td>Simon</td>
+<td><strong>Simon</strong></td>
 <td>19 Oct 1771</td>
 <td>#93 (House #4?)</td>
 <td>Mathia Vaup and Maria Luca Raak</td>
-<td></td>
-<td></td>
+<td>5 Apr 1835, SP4, age 63 (<a
+href="https://data.matricula-online.eu/en/slovenia/ljubljana/vranja-pec/03562/?pg=22">VP
+03562 pg22</a>)</td>
+<td><strong>This is “Simon Rems (SP8)”</strong> — m. Maria Bernoth 3 Feb
+1796 (<a
+href="https://data.matricula-online.eu/en/slovenia/ljubljana/vranja-pec/03564/?pg=5">VP
+03564 pg5</a>). Identity resolved 2026-08-01 (Acorn Q
+<code>9c3b2121</code>) — makes him <strong>Helena’s older
+half-brother</strong>. See <a
+href="rems-martinus-barbara.md">rems-martinus-barbara.md</a> for the
+full evidence chain.</td>
 </tr>
 <tr>
 <td>7</td>
@@ -661,7 +686,11 @@ href="https://data.matricula-online.eu/en/slovenia/ljubljana/kamnik/00712/?pg=19
 <td></td>
 <td></td>
 <td></td>
-<td>“May be a typo, as he is too close to Maria”</td>
+<td>“May be a typo, as he is too close to Maria” — mother attribution
+confirmed 2026-08-01 (Q <code>c1ddfab3</code>): must be Maria Kregar’s,
+not Ursula Berlz’s (who died 3 Oct 1775, years before this birth).
+Whether 11 June is itself a typo remains open. Acorn person
+<code>2bf979df-7d7c-4749-b281-b9c244ab815c</code>.</td>
 </tr>
 <tr>
 <td>3</td>
@@ -718,7 +747,8 @@ transcription notes mother as “wife Miza Rems?” but the parental couple
 per family structure is Mathias × Maria Kregar. Re-read the original
 Matricula entry to confirm whether “Miza” is a misreading or indicates a
 different mother. Acorn person
-<code>6f14acf3-59c5-4bfa-a61f-833ca2b6121a</code>.</td>
+<code>6f14acf3-53c1-425e-b26e-90df0860b00e</code> (corrected 2026-08-01
+— the ID previously cited here didn’t exist in Acorn at all).</td>
 </tr>
 </tbody>
 </table>
@@ -899,10 +929,10 @@ Luca?)</td>
 <hr />
 <h2 id="source-documents">SOURCE DOCUMENTS</h2>
 <ol type="1">
-<li><strong>Early Palovce chart notes.pdf</strong> - Primary source</li>
+<li><strong>early-palovce-chart-notes.pdf</strong> - Primary source</li>
 <li><strong>SP families chart Jan 2023.pdf</strong> - Birth records</li>
-<li><strong>page 1SP familiesUTF-8 or .csv</strong> - SP families master
-chart (source of children details, marriage records, and the two-Mathias
+<li><strong>sp-families.csv</strong> - SP families master chart (source
+of children details, marriage records, and the two-Mathias
 discovery)</li>
 </ol>
 <hr />
