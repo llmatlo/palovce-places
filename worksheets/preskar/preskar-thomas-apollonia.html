@@ -417,6 +417,24 @@ Osredkar</li>
 <li>France Preskar (b. 1846) at Podsreda 17 - death date now
 confirmed</li>
 </ul>
+<h3
+id="data-error-found-2026-08-02-not-yet-fixed-needs-elevated-permissions">⚠️
+Data error found 2026-08-02, NOT YET FIXED (needs elevated
+permissions)</h3>
+<p>Acorn’s family record for Thomas Preskar × Apollonia Gersina
+(<code>6f4f2202</code>) currently lists <strong>Anton Preskar as a
+fourth biological child</strong>, alongside Jožef, Apolonia, and France.
+This is wrong — Anton is Apolonia’s <em>husband</em> (see <a
+href="preskar-anton-apolonia.md">preskar-anton-apolonia.md</a> and Acorn
+family <code>2d4be759</code>), correctly linked elsewhere as the son of
+Franz Preskar &amp; Agnes Dobrautz. As it stands the Acorn data implies
+Anton married his own sister. No <code>remove_family_child</code> tool
+exists to unlink just Anton; fixing this requires
+<code>delete_family</code> + recreate, which is blocked by this
+session’s auto-mode permission classifier even after explicit user
+confirmation. Needs a session with elevated permissions (or Larry doing
+it directly) to actually fix. Don’t re-discover this from scratch — it’s
+a known, understood error, just not yet correctable.</p>
 <hr />
 <h2 id="relationship-to-other-thomas-preskar">RELATIONSHIP TO OTHER
 THOMAS PRESKAR</h2>
@@ -504,7 +522,7 @@ Apolonia would be <strong>first cousins</strong>.</p>
 <ol type="1">
 <li><strong>Matola.ged</strong> - GEDCOM export from
 FamilySearch/RootsMagic</li>
-<li><strong>Preskar from SAs.md</strong> - Status Animarum records with
+<li><strong>preskar-from-sas.md</strong> - Status Animarum records with
 additional children</li>
 </ol>
 <hr />
