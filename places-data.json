@@ -852,7 +852,7 @@
           ]
         }
       ],
-      "description": "Buildings 73–75 in the 1827 cadastral survey. Owned by Stephan Pistotnik by 1827. The Pistotnik family married into the Osredkar name here when Joseph Pistotnik wed Elizabeth Osredkar in 1730. Their son Blais used both names. Maria Osredkar (b. 1777, married Joseph Vaupetič) was born here.",
+      "description": "Buildings 73–75 in the 1827 cadastral survey. Owned by Stephan Pistotnik by 1827. The Pistotnik family married into the Osredkar name here when Joseph Pistotnik wed Elizabeth Osredkar in 1730. Their son Blais used both names. Maria Osredkar (b. 1777, married Joseph Vaupetič) was born here. Gary's annotated 1826 cadastre map shows BP3 as noticeably larger than the Liukovo properties across the valley (Sovinja Peč 5) — the two homesteads are separated by a creek but linked by a road Gary calls \"the wiggly road between our two homesteads.\"",
       "links": [
         {
           "href": "worksheets/pistotnik-grill/pistotnik-joseph-eliz-osredkar.html",
@@ -917,13 +917,29 @@
           "summary": "Georg Osredkar was born here 23 Mar 1777 to Martinus Osredkar vulgo Liuk & Barbara Kuhar — the vulgo name \"Liuk\" comes from Liukovo. Owned by Georg's brother Joseph per the 1827 cadastral survey."
         }
       ],
-      "description": "Building 51, cadastral municipality Znojile. Georg Osredkar born here 23 Mar 1777 to Martinus Osredkar vulgo Liuk & Barbara Kuhar. The vulgo name \"Liuk\" comes from Liukovo. Owned by Georg's brother Joseph in 1827. ~30 min walk from Bela Peč 3.",
+      "description": "Building 51, cadastral municipality Znojile. Georg Osredkar born here 23 Mar 1777 to Martinus Osredkar vulgo Liuk & Barbara Kuhar. The vulgo name \"Liuk\" comes from Liukovo. Owned by Georg's brother Joseph in 1827. ~30 min walk from Bela Peč 3, across the creek that separates the two clusters of family homesteads — connected by the road Gary calls \"the wiggly road between our two homesteads\" on his annotated 1826 cadastre map.",
       "links": [
         {
           "href": "worksheets/osredkar/osredkar-G05-martinus-barbara.html",
           "label": "Open worksheet: osredkar-G05-martinus-barbara"
         }
       ]
+    },
+    {
+      "id": "1475d4b0-7497-4d49-81c9-5ccb9780f099",
+      "name": "Ravne 8",
+      "lat": 46.2486,
+      "lng": 14.7195,
+      "track": "homestead",
+      "fullPath": "Ravne 8, Ravne, Sela pri Kamniku, Carniola (Kranjska), Slovenia",
+      "families": [
+        {
+          "name": "Pistotnik",
+          "years": "1805",
+          "summary": "Anna Pistotnik — our ancestor, later m. Stefan Grill — was born here in 1805 to Bartholomew Pistotnik & Helena Shumer. Ravne 8 sits just southeast of Bela Peč 3; the adjacency was long noted from the birth record alone and confirmed visually on Gary's 1826 cadastre map (2026-08-06)."
+        }
+      ],
+      "description": "Farm adjacent to Bela Peč 3, heading southeast. Birthplace of Anna Pistotnik, 1805, daughter of Bartholomew Pistotnik & Helena Shumer. Anna later married Stefan Grill. Pin position approximate — not precisely surveyed."
     },
     {
       "id": "597a3a8f-4e55-4af2-949f-2aefe656ab59",
