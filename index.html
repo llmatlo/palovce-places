@@ -17,7 +17,6 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-:root { --panel-width: 280px; }
 body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f5f0eb; color: #3b3228; }
 
 #map { width: 100%; height: 100vh; }
@@ -65,7 +64,7 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background
 
 /* Side panel */
 .side-panel {
-  position: absolute; top: 52px; right: 0; bottom: 56px; width: var(--panel-width);
+  position: absolute; top: 52px; right: 0; bottom: 56px; width: 280px;
   z-index: 999; background: #faf9f7; border-left: 2px solid #d8d4cc;
   overflow-y: auto; transition: transform 0.3s;
   padding: 16px;
@@ -74,20 +73,13 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background
 .side-panel.hidden { transform: translateX(100%); }
 
 .panel-toggle {
-  position: absolute; top: 62px; right: var(--panel-width); z-index: 1000;
+  position: absolute; top: 62px; right: 280px; z-index: 1000;
   background: #faf9f7; border: 1px solid #d8d4cc; border-right: none;
   color: #6b6355; padding: 8px 6px; cursor: pointer;
   border-radius: 4px 0 0 4px; font-size: 14px; transition: all 0.3s;
 }
 .panel-toggle:hover { color: #2c3e50; }
 .panel-toggle.panel-hidden { right: 0; }
-
-/* Phones: the panel would otherwise cover most of the screen at a fixed 280px.
-   Narrower width here; also starts collapsed on load (see the initial-state
-   check in buildMap()) so it doesn't block the map until the user opens it. */
-@media (max-width: 480px) {
-  :root { --panel-width: 78vw; }
-}
 
 .panel-section { margin-bottom: 20px; }
 .panel-section h3 {
@@ -258,11 +250,6 @@ body.hide-chips .family-chip-icon { display: none; }
   <div class="panel-section">
     <h3>Legend</h3>
     <div id="legendItems"></div>
-  </div>
-
-  <div class="panel-section">
-    <h3>Sources</h3>
-    <p>Genealogical source records: <a href="https://data.matricula-online.eu" target="_blank">Matricula Online</a>, digitized parish registers held by the Nadškofijski arhiv Ljubljana and partner archives. Private, non-commercial family research.</p>
   </div>
 </div>
 
@@ -1514,6 +1501,38 @@ body.hide-chips .family-chip-icon { display: none; }
           "label": "Open worksheet: osredkar-G02-mathias-maria-grill"
         }
       ]
+    },
+    {
+      "id": "7558b462-9064-4fcb-a2ca-4605871765b1",
+      "name": "Trebelno pri Palovičah",
+      "lat": 46.21044,
+      "lng": 14.65206,
+      "track": "village",
+      "fullPath": "Trebelno pri Palovičah, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "description": "Probable match for \"Trobeum\"/\"Trob-\", a place-name that recurs across multiple independent records tied to this project's families (a Kamnik marriage register bride \"from Trobeum,\" two Vranja Peč death-register entries during an 1813 smallpox epidemic, and the Dollar family \"from Trobeum 2\" who later moved to SP7). Renamed \"Trebelno\" in 1952 (was plain \"Trebelno\" before, per Wikipedia); sits ~0.4 km from Zgornje Palovče. Probable, not proved — no single document directly equates the two names. Pin coordinates are a cursor-position estimate read off Gary's 1826 Arcanum cadastral-map screenshot (2026-09-05), not a precise building location — medium confidence.",
+      "families": [
+        {
+          "name": "Dollar",
+          "years": "to 1827",
+          "summary": "The Dollar family lived at Trobeum 2 before moving to SP7 (Zgornje Palovče) around 1827."
+        }
+      ]
+    },
+    {
+      "id": "b95a7ec4-36e6-49d3-b807-a85af6791d68",
+      "name": "Rabensburg",
+      "lat": 46.21028,
+      "lng": 14.67222,
+      "track": "village",
+      "fullPath": "Rabensburg (Rabensberg), Vranja Peč, Carniola (Kranjska), Slovenia",
+      "description": "Recurs in the Rems family research: Mathias Rems (b. Feb 1739, Helena Rems's father) died here in 1798, at Rabensburg 3; his first wife Ursula Berlz's family were also \"from SP and Rabensburg.\" Neighbors the village of St. Ulrich. Pin coordinates are a cursor-position estimate read off Gary's 1826 Arcanum cadastral-map screenshot (2026-09-05), not a precise building location — medium confidence.",
+      "families": [
+        {
+          "name": "Rems",
+          "years": "to 1798",
+          "summary": "Mathias Rems (b. Feb 1739), Helena Rems's father, died at Rabensburg 3 in 1798."
+        }
+      ]
     }
   ],
   "familyColors": {
@@ -1528,7 +1547,6 @@ body.hide-chips .family-chip-icon { display: none; }
     "Poljansek": "#0891b2"
   }
 }
-
 </script>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -1873,7 +1891,7 @@ function buildMap() {
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; 2026 Gary DelNero family research &middot; Map tiles &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    subdomains: 'abc',
+    subdomains: 'abcd',
     maxZoom: 19
   }).addTo(map);
 
@@ -1899,13 +1917,6 @@ function buildMap() {
   buildTrackToggles();
   setupTimeline();
   setupChipVisibility();
-
-  // On phones the panel is wide enough to cover most of the map, so start
-  // collapsed there — desktop/tablet keeps the existing default-open behavior.
-  if (window.innerWidth <= 480) {
-    document.getElementById('sidePanel').classList.add('hidden');
-    document.querySelector('.panel-toggle').classList.add('panel-hidden');
-  }
 }
 
 // Chips only show above a configurable zoom (avoids clutter at country/region
