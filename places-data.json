@@ -14,7 +14,8 @@
       "label": "Homestead",
       "color": "#92400e",
       "colorByStatus": false,
-      "radius": 7
+      "radius": 7,
+      "shape": "square"
     },
     "village": {
       "label": "Village",
@@ -26,7 +27,8 @@
       "label": "Parish",
       "color": "#7c3aed",
       "colorByStatus": false,
-      "radius": 10
+      "radius": 10,
+      "shape": "diamond"
     },
     "town": {
       "label": "Town/City",
@@ -36,9 +38,23 @@
     },
     "address": {
       "label": "Address",
-      "color": "#b91c1c",
+      "color": "#be185d",
       "colorByStatus": false,
       "radius": 5
+    },
+    "memorial": {
+      "label": "Memorial",
+      "color": "#4b5563",
+      "colorByStatus": false,
+      "radius": 6,
+      "shape": "triangle"
+    },
+    "landmark": {
+      "label": "Landmark",
+      "color": "#15803d",
+      "colorByStatus": false,
+      "radius": 8,
+      "shape": "triangle"
     }
   },
   "stops": [
@@ -448,17 +464,17 @@
     },
     {
       "id": "00583a51-05ba-4924-a4e1-512790086eda",
-      "name": "SP3 — Budnar House Museum",
+      "name": "ZGP3 — Budnar House Museum (today Zgornje Palovče 5)",
       "lat": 46.2130099,
       "lng": 14.649508,
       "track": "homestead",
-      "fullPath": "SP3 — Budnar House Museum (Matjas House), Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
+      "fullPath": "ZGP3 — Budnar House Museum (Matjas House), Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
       "highlight": true,
       "families": [
         "Osredkar",
         "Rems"
       ],
-      "description": "SA name: \"Matjas House\" — now the Budnar House Museum. 1827 owner: Michael Osredkar. DIRECT LINE — the family homestead for Gary's research. Pin corrected 2026-07-26 to the real address, Zgornje Palovče 5, confirmed via Google Maps listing and OSM building data.",
+      "description": "SA name: \"Matjas House\" — now the Budnar House Museum. 1827 owner: Michael Osredkar. DIRECT LINE — the family homestead for Gary's research. Pin corrected 2026-07-26 to the real address, Zgornje Palovče 5, confirmed via Google Maps listing and OSM building data. Local tradition (Janez Medvešek's 2012 slideshow) dates the house to about 1652, built by \"Matjaž's father\", which matches its old house name \"Matjas\". The last owners were the Budnars (Mici Budnar was born here), and the Municipality of Kamnik restored it as a museum from the late 1990s. Visited by the family in September 2026; the museum house was being renovated at the time.",
       "events": [
         {
           "date": "~1650s",
@@ -519,7 +535,45 @@
           "label": "View full house history →"
         }
       ],
-      "gated": true
+      "gated": true,
+      "photos": [
+        {
+          "src": "photos/zgp3-budnar-house.jpg",
+          "thumb": "photos/zgp3-budnar-house-thumb.jpg",
+          "caption": "The stone house and its wooden balcony",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zgp3-budnar-balcony.jpg",
+          "thumb": "photos/zgp3-budnar-balcony-thumb.jpg",
+          "caption": "Along the balcony",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zgp3-budnar-main-room.jpg",
+          "thumb": "photos/zgp3-budnar-main-room-thumb.jpg",
+          "caption": "The main room (hiša)",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zgp3-budnar-black-kitchen.jpg",
+          "thumb": "photos/zgp3-budnar-black-kitchen-thumb.jpg",
+          "caption": "The black kitchen hearth",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zgp3-budnar-window.jpg",
+          "thumb": "photos/zgp3-budnar-window-thumb.jpg",
+          "caption": "A window in the main room",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zgp3-budnar-view.jpg",
+          "thumb": "photos/zgp3-budnar-view-thumb.jpg",
+          "caption": "The view from the house",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
+      ]
     },
     {
       "id": "d7e4c302-709e-42eb-aada-ac475860fc98",
@@ -832,11 +886,11 @@
     },
     {
       "id": "ee25a737-62e8-4198-b35c-541b602c2aff",
-      "name": "Bela Peč 3 — Osredek Farm",
-      "lat": 46.2496,
-      "lng": 14.7172,
+      "name": "Bela Peč 3 — Osredek Farm (today Bela Peč 6)",
+      "lat": 46.24506,
+      "lng": 14.71938,
       "track": "homestead",
-      "fullPath": "Bela Peč 3 — Osredek Farm, Bela Peč, Sela pri Kamniku, Carniola (Kranjska), Slovenia",
+      "fullPath": "Bela Peč 3 (Bellapetsch 3) — Osredek Farm, today Bela Peč 6 (\"Osredkar\"), Sela pri Kamniku, Carniola (Kranjska), Slovenia",
       "families": [
         {
           "name": "Osredkar",
@@ -876,7 +930,7 @@
           ]
         }
       ],
-      "description": "Buildings 73–75 in the 1827 cadastral survey. Owned by Stephan Pistotnik by 1827. The Pistotnik family married into the Osredkar name here when Joseph Pistotnik wed Elizabeth Osredkar in 1730. Their son Blais used both names. Maria Osredkar (b. 1777, married Joseph Vaupetič) was born here. Gary's annotated 1826 cadastre map shows BP3 as noticeably larger than the Liukovo properties across the valley (Sovinja Peč 5) — the two homesteads are separated by a creek but linked by a road Gary calls \"the wiggly road between our two homesteads.\"",
+      "description": "Buildings 73–75 in the 1827 cadastral survey. Owned by Stephan Pistotnik by 1827. The Pistotnik family married into the Osredkar name here when Joseph Pistotnik wed Elizabeth Osredkar in 1730. Their son Blais used both names. Maria Osredkar (b. 1777, married Joseph Vaupetič) was born here. Gary's annotated 1826 cadastre map shows BP3 as noticeably larger than the Liukovo properties across the valley (Sovinja Peč 5) — the two homesteads are separated by a creek but linked by a road Gary calls \"the wiggly road between our two homesteads.\" Old no. 3 is today's Bela Peč 6, and the barn still carries the house name \"OSREDKAR — BELA PEČ 6\". The pin was moved in October 2026, about 550 m south-east, to the farm itself, using the GPS in photos from a family visit in September 2026; Tadej's research also titles this house \"Bela Peč 6 (Bellapetsch 3)\".",
       "links": [
         {
           "href": "worksheets/pistotnik-grill/pistotnik-joseph-eliz-osredkar.html",
@@ -925,15 +979,47 @@
           "text": "Janez (b. 1921) & Martin (b. 1912) Poljansek murdered by partisans at BP3 — named “Osredkarjevi (Bela Peč 3)” in the Livku massacre article.",
           "source": "Reporter, 21 Mar 2022, “Grozodejstvo pri Livku” (Livku-1944-druzina-part7-translation.md)"
         }
+      ],
+      "photos": [
+        {
+          "src": "photos/belapec6-barn-sign.jpg",
+          "thumb": "photos/belapec6-barn-sign-thumb.jpg",
+          "caption": "The barn, with the house name \"Osredkar — Bela Peč 6\"",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/belapec6-old-house.jpg",
+          "thumb": "photos/belapec6-old-house-thumb.jpg",
+          "caption": "The old timber house",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/belapec6-door-64.jpg",
+          "thumb": "photos/belapec6-door-64-thumb.jpg",
+          "caption": "Painted door frame of the old house, numbered \"64\"",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/belapec6-old-house-view.jpg",
+          "thumb": "photos/belapec6-old-house-view-thumb.jpg",
+          "caption": "The old house and the valley",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/belapec6-hayloft.jpg",
+          "thumb": "photos/belapec6-hayloft-thumb.jpg",
+          "caption": "Hayloft and cart shed",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
       ]
     },
     {
       "id": "abd91587-fd1b-4f79-8f8d-6072e4dff807",
-      "name": "Sovinja Peč 5 — Liukovo",
-      "lat": 46.2558,
-      "lng": 14.7009,
+      "name": "Sovinja Peč 5 — Liukovo (today Sovinja Peč 2)",
+      "lat": 46.24826,
+      "lng": 14.70955,
       "track": "homestead",
-      "fullPath": "Sovinja Peč 5 — Liukovo, Sovinja Peč, Šmartno v Tuhinju, Carniola (Kranjska), Slovenia",
+      "fullPath": "Sovinja Peč 5 — Liukovo (today Sovinja Peč 2, hamlet Trobelno), Sovinja Peč, Šmartno v Tuhinju, Carniola (Kranjska), Slovenia",
       "families": [
         {
           "name": "Osredkar",
@@ -941,21 +1027,86 @@
           "summary": "Georg Osredkar was born here 23 Mar 1777 to Martinus Osredkar vulgo Liuk & Barbara Kuhar — the vulgo name \"Liuk\" comes from Liukovo. Owned by Georg's brother Joseph per the 1827 cadastral survey."
         }
       ],
-      "description": "Building 51, cadastral municipality Znojile. Georg Osredkar born here 23 Mar 1777 to Martinus Osredkar vulgo Liuk & Barbara Kuhar. The vulgo name \"Liuk\" comes from Liukovo. Owned by Georg's brother Joseph in 1827. ~30 min walk from Bela Peč 3, across the creek that separates the two clusters of family homesteads — connected by the road Gary calls \"the wiggly road between our two homesteads\" on his annotated 1826 cadastre map.",
+      "description": "Building 51, cadastral municipality Znojile. Georg Osredkar born here 23 Mar 1777 to Martinus Osredkar vulgo Liuk & Barbara Kuhar. The vulgo name \"Liuk\" comes from Liukovo. Owned by Georg's brother Joseph in 1827. ~30 min walk from Bela Peč 3, across the creek that separates the two clusters of family homesteads — connected by the road Gary calls \"the wiggly road between our two homesteads\" on his annotated 1826 cadastre map. Today's address is Sovinja Peč 2, in the hamlet of Trobelno. The pin was moved in October 2026 to the farm itself, using the GPS in photos from a family visit in September 2026.",
       "links": [
         {
           "href": "worksheets/osredkar/osredkar-G05-martinus-barbara.html",
           "label": "Open worksheet: osredkar-G05-martinus-barbara"
         }
+      ],
+      "photos": [
+        {
+          "src": "photos/livek-old-house.jpg",
+          "thumb": "photos/livek-old-house-thumb.jpg",
+          "caption": "The old house at Livek",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/livek-carved-doors.jpg",
+          "thumb": "photos/livek-carved-doors-thumb.jpg",
+          "caption": "Carved front doors of the old house",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/livek-hayloft-barn.jpg",
+          "thumb": "photos/livek-hayloft-barn-thumb.jpg",
+          "caption": "Hayloft barn on the lane",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/livek-timber-barn.jpg",
+          "thumb": "photos/livek-timber-barn-thumb.jpg",
+          "caption": "Old timber barn",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/livek-lane.jpg",
+          "thumb": "photos/livek-lane-thumb.jpg",
+          "caption": "The lane past the farm",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/livek-meadow.jpg",
+          "thumb": "photos/livek-meadow-thumb.jpg",
+          "caption": "Meadow below the farm",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
+      ]
+    },
+    {
+      "id": "b71d6b12-f75c-4ec7-9534-ec99a08d0be2",
+      "name": "Livek WWII memorial (15 Oct 1944)",
+      "lat": 46.24816,
+      "lng": 14.70913,
+      "track": "memorial",
+      "fullPath": "Memorial beside the lane at Sovinja Peč 2 (Livek), Sovinja Peč, Kamnik, Slovenia",
+      "families": [
+        "Osredkar",
+        "Poljansek"
+      ],
+      "description": "Stone memorial beside the farm lane at Livek to the people killed on 15 October 1944, when the Livek and Brleč farms were attacked. The plaque lists Tomaž Hribar; Terezija, Antonija, Janez and Jože Kuhar; Jakob Osredkar; ten members of the Poljanšek family; Stanislava Črnevšek; and, on a lower panel, Alojz Poljanšek and Matevž Sovinšek.",
+      "photos": [
+        {
+          "src": "photos/livek-memorial.jpg",
+          "thumb": "photos/livek-memorial-thumb.jpg",
+          "caption": "The memorial",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/livek-memorial-plaque.jpg",
+          "thumb": "photos/livek-memorial-plaque-thumb.jpg",
+          "caption": "The memorial plaque, 15 October 1944",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
       ]
     },
     {
       "id": "1475d4b0-7497-4d49-81c9-5ccb9780f099",
-      "name": "Ravne 8",
-      "lat": 46.2486,
-      "lng": 14.7195,
+      "name": "Ravne 8 — Lovrač (today Ravne pri Šmartnem 3)",
+      "lat": 46.24291,
+      "lng": 14.7288,
       "track": "homestead",
-      "fullPath": "Ravne 8, Ravne, Sela pri Kamniku, Carniola (Kranjska), Slovenia",
+      "fullPath": "Ravne 8 (\"Lovrač\"), today Ravne pri Šmartnem 3, parish Šmartno v Tuhinju, Carniola (Kranjska), Slovenia",
       "families": [
         {
           "name": "Pistotnik",
@@ -963,11 +1114,19 @@
           "summary": "Anna Pistotnik — our ancestor, later m. Stefan Grill — was born here in 1805 to Bartholomew Pistotnik & Helena Shumer. Ravne 8 sits just southeast of Bela Peč 3; the adjacency was long noted from the birth record alone and confirmed visually on Gary's 1826 cadastre map (2026-08-06)."
         }
       ],
-      "description": "Farm adjacent to Bela Peč 3, heading southeast. Birthplace of Anna Pistotnik, 1805, daughter of Bartholomew Pistotnik & Helena Shumer. Anna later married Stefan Grill. Pin position approximate — not precisely surveyed.",
+      "description": "Farm south-east of Bela Peč 3, with the house name \"Lovrač\". Birthplace of Anna Pistotnik, 12 Aug 1805, daughter of Bartholomew Pistotnik & Helena Shumer. Anna later married Stefan Grill. Old no. 8 is today's Ravne pri Šmartnem 3. The pin was moved in October 2026 from an approximate spot to that address (OpenStreetMap), about 950 m south-east; the match rests on the address of a family visit in September 2026 and the photographer's \"Ravne 3 (old no 8)\" label, not yet confirmed by Gary.",
       "links": [
         {
           "href": "worksheets/pistotnik-grill/grill-stephan-anna.html",
           "label": "Open worksheet: grill-stephan-anna"
+        }
+      ],
+      "photos": [
+        {
+          "src": "photos/ravne3-property.jpg",
+          "thumb": "photos/ravne3-property-thumb.jpg",
+          "caption": "The Ravne property today, with a new house going up",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
         }
       ]
     },
@@ -1059,22 +1218,72 @@
     },
     {
       "id": "f5fdc876-597e-4d6b-8d3e-5db4978d0708",
-      "name": "Schüttenbach 3",
-      "lat": 46.2265,
-      "lng": 14.606,
+      "name": "Schüttenbach / Sallenberg 3 (today Žale 4)",
+      "lat": 46.22939,
+      "lng": 14.60284,
       "track": "address",
-      "fullPath": "Schüttenbach 3, Kamnik, Carniola (Kranjska), Slovenia",
+      "fullPath": "Schüttenbach 3 / Sallenberg 3 / Zale 3, today Žale 4 (\"Pr Burič\"), Kamnik, Carniola (Kranjska), Slovenia",
       "families": [
         {
+          "name": "Pistotnik",
+          "summary": "Barthol Pistotnik owned this house and died here in 1840 (Kamnik deaths 00727, pg. 40)."
+        },
+        {
+          "name": "Grill",
+          "summary": "Barthol Pistotnik's granddaughter Maria Grill married Mathias Osredkar from this house on 13 Feb 1865, the same day her sister Apollonia married Barthol Rems."
+        },
+        {
+          "name": "Rems",
+          "summary": "Barthol Rems and Apollonia Grill made their home here after their 1865 wedding; their last child, Blasius, was born here in 1888, and Apollonia died here."
+        },
+        {
           "name": "Osredkar",
-          "summary": "Mathias Osredkar's address, near Grabon where the Prelesnik family lived — a possible Pistotnik connection given Apollonia Prelesnik's 1750 marriage into the Pistotnik line."
+          "summary": "Mathias Osredkar married Maria Grill from this house in 1865. Their son Franz (Frank) Osredkar, Ludmilla's father, was born here on 21 July 1865 (Kamnik 03875, pg. 224). By 1888 Frank's brother and sister were living here again."
         }
       ],
-      "description": "Mathias Osredkar's address. Near Grabon where the Prelesnik family lived — a possible Pistotnik connection. Pin corrected 2026-07-26 to bldg 298 in the Zale/Sallenberg neighborhood by the river — Gary's map shows two \"Schutt 3\" labels; bldg 298 (ours) is by the river, not the bldg 71 townhouse next to Mali Grad that an earlier draft mistook it for. Approximate, not surveyed.",
+      "description": "The Pistotnik family house in Žale, on the hill above Kamnik: old Schüttenbach 3, also written Sallenberg/Sullenburg 3 and Zale 3, and today Žale 4, with the house name \"Pr Burič\" on the door. Birthplace of Frank Osredkar (1865). Gary confirmed in September 2026 that old no. 3 is today's Žale 4, matching a handwritten note on one of Tadej's photos. The pin was moved in October 2026 from an approximate spot read off the cadastral map to the house itself, using the GPS in photos from a family visit in September 2026.",
       "links": [
         {
           "href": "worksheets/osredkar/osredkar-G02-mathias-maria-grill.html",
           "label": "Open worksheet: osredkar-G02-mathias-maria-grill"
+        }
+      ],
+      "photos": [
+        {
+          "src": "photos/zale4-house.jpg",
+          "thumb": "photos/zale4-house-thumb.jpg",
+          "caption": "Žale 4 today",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zale4-door.jpg",
+          "thumb": "photos/zale4-door-thumb.jpg",
+          "caption": "The front door, with the house name \"Pr Burič\"",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zale4-lane.jpg",
+          "thumb": "photos/zale4-lane-thumb.jpg",
+          "caption": "Žale 4 from the lane",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zale-lane.jpg",
+          "thumb": "photos/zale-lane-thumb.jpg",
+          "caption": "The lane through Žale",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zale-alps-view.jpg",
+          "thumb": "photos/zale-alps-view-thumb.jpg",
+          "caption": "The view from Žale to the Kamnik Alps",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/zale-barn-view.jpg",
+          "thumb": "photos/zale-barn-view-thumb.jpg",
+          "caption": "Old barn and orchard, looking toward the mountains",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
         }
       ]
     },
@@ -1277,6 +1486,306 @@
           "summary": "Mathias Rems (b. Feb 1739), Helena Rems's father, died at Rabensburg 3 in 1798."
         }
       ]
+    },
+    {
+      "id": "2711f15e-9837-4176-a5d1-440ce5157ad6",
+      "name": "Podsreda 18/18a — old Hörberg 17 (Preskar house)",
+      "lat": 46.04578,
+      "lng": 15.57422,
+      "track": "homestead",
+      "fullPath": "Hörberg (Podsreda) 17, today Podsreda 18/18a, Styria (Štajerska), Slovenia",
+      "families": [
+        {
+          "name": "Preskar",
+          "years": "1783–1840s",
+          "summary": "Antonius Preskar married Katharina (Šimončič) here on 12 Feb 1783 and moved into her family's house. Their son Thomas Preskar and his wife Apollonia Gersina raised their children here, among them our ancestor Apolonia Preskar, born 5 Feb 1842."
+        }
+      ],
+      "description": "Site of old Hörberg 17, the Šimončič and then Preskar house, on the edge of Podsreda. Gary's 1825 cadastral map puts it on the plots of today's Podsreda 18/18a; the original house site, a short way east between 18A and 21, is now woodland and meadow. The pin is on Podsreda 18A (OpenStreetMap). Photos from a family visit in September 2026.",
+      "links": [
+        {
+          "href": "worksheets/preskar/preskar-thomas-apollonia.html",
+          "label": "Open worksheet: preskar-thomas-apollonia"
+        }
+      ],
+      "photos": [
+        {
+          "src": "photos/podsreda18-farm.jpg",
+          "thumb": "photos/podsreda18-farm-thumb.jpg",
+          "caption": "The farm at Podsreda 18 (old Hörberg 17), seen from Podsreda 17",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/podsreda18-old-barn.jpg",
+          "thumb": "photos/podsreda18-old-barn-thumb.jpg",
+          "caption": "Old barn on the slope above the farm",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/podsreda18-lane.jpg",
+          "thumb": "photos/podsreda18-lane-thumb.jpg",
+          "caption": "The farm lane and barn beside Podsreda 18",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/podsreda18-valley.jpg",
+          "thumb": "photos/podsreda18-valley-thumb.jpg",
+          "caption": "The valley below Podsreda 17 and 18",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
+      ]
+    },
+    {
+      "id": "a1fa2424-36bd-46bf-b12c-17a3968192a5",
+      "name": "Osredek pri Podsredi",
+      "lat": 46.01638,
+      "lng": 15.60872,
+      "track": "village",
+      "fullPath": "Osredek pri Podsredi, Kozje, Styria (Štajerska), Slovenia",
+      "families": [
+        {
+          "name": "Preskar",
+          "summary": "Gary places the earlier generations of our Preskar line at Osredek no. 11. Antonius Preskar, who married at Hörberg 17 in 1783, was the son of Anton Preskar and Gertrud of Osredek 11."
+        }
+      ],
+      "description": "Hill village south of Podsreda. Home of the earlier Preskar generations at house no. 11 (Gary's research). The exact site of no. 11 is not yet located. Photos from a family visit in September 2026.",
+      "photos": [
+        {
+          "src": "photos/osredek-view.jpg",
+          "thumb": "photos/osredek-view-thumb.jpg",
+          "caption": "Hills and meadows at Osredek",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/osredek-lane.jpg",
+          "thumb": "photos/osredek-lane-thumb.jpg",
+          "caption": "The lane through Osredek",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
+      ]
+    },
+    {
+      "id": "cf579f7b-e6cb-4998-ab90-8f9e5dad5ade",
+      "name": "Grad Pišece (Pišece castle)",
+      "lat": 46.00638,
+      "lng": 15.63709,
+      "track": "landmark",
+      "fullPath": "Grad Pišece, Pišece, Brežice, Slovenia",
+      "description": "Castle above Pišece, the neighbouring parish south of Podsreda, now a museum. Its exhibits cover the Moscon family who held it, the peasant revolts of 1573 and 1661, and local history. Visited by the family in September 2026.",
+      "photos": [
+        {
+          "src": "photos/pisece-castle-walls.jpg",
+          "thumb": "photos/pisece-castle-walls-thumb.jpg",
+          "caption": "Pišece castle",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/pisece-castle-courtyard.jpg",
+          "thumb": "photos/pisece-castle-courtyard-thumb.jpg",
+          "caption": "The castle courtyard and well",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/pisece-castle-tower.jpg",
+          "thumb": "photos/pisece-castle-tower-thumb.jpg",
+          "caption": "The clock tower",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/pisece-castle-view.jpg",
+          "thumb": "photos/pisece-castle-view-thumb.jpg",
+          "caption": "View from the castle terrace",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
+      ]
+    },
+    {
+      "id": "90849116-5f89-4843-a067-095646a467d3",
+      "name": "Pišece 49 — Čerenje (Preskar vineyard)",
+      "lat": 45.99785,
+      "lng": 15.6403,
+      "track": "homestead",
+      "fullPath": "Pišece 49, \"Čerenje\", Pišece, Brežice, Slovenia",
+      "families": [
+        {
+          "name": "Preskar",
+          "years": "1882–",
+          "summary": "A Preskar family farm and vineyard since 1882, according to the owners' plaque on the old wine cottage: Maks Preskar (1859–1937) and his wife Neža, née Špiler (1874–1960), then their descendants. How this branch connects to our Preskar line is not yet known."
+        }
+      ],
+      "description": "Vineyard farm with the house name \"Čerenje\", held by a branch of the Preskar family since 1882. The old timber wine cottage carries a carved board dated 1922 with the initials of Maks and Neža Preskar. Pin from the GPS of photos taken during a family visit in September 2026.",
+      "photos": [
+        {
+          "src": "photos/pisece49-vineyards.jpg",
+          "thumb": "photos/pisece49-vineyards-thumb.jpg",
+          "caption": "Vineyards below the farm",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/pisece49-hills.jpg",
+          "thumb": "photos/pisece49-hills-thumb.jpg",
+          "caption": "The hills above Pišece",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
+      ]
+    },
+    {
+      "id": "9872ff3f-fa84-4598-af08-0b47d77cc35a",
+      "name": "Krašce 1 — Grill homestead (today Krašce 5)",
+      "lat": 46.13515,
+      "lng": 14.71844,
+      "track": "homestead",
+      "fullPath": "Krašce (Krasze) No. 1, today Krašce 5, parish Moravče, Carniola (Kranjska), Slovenia",
+      "families": [
+        {
+          "name": "Grill",
+          "years": "1764–1799+",
+          "summary": "The Gril/Grill line at Krašce: Primus Gril and Margaret's son Valentin was baptised in Moravče on 8 Feb 1764 (01503, scan 85); Valentin married Maria Capuder in 1790; their son Stephan Grill was born at Krašce No. 1 on 23 Dec 1799 (Moravče 01505, scan 85). Stephan married Anna Pistotnik, and their daughter Maria Grill was Frank Osredkar's mother.",
+          "links": [
+            {
+              "href": "worksheets/pistotnik-grill/grill-stephan-anna.html",
+              "label": "Open worksheet: grill-stephan-anna"
+            }
+          ]
+        }
+      ],
+      "description": "The Grill (Grilj) family homestead in Krašce, in Moravče parish, where Stephan Grill was born in 1799 at house No. 1. Today's address is Krašce 5; the family who live there call it \"Mohorjeva domačija\" (the Mohor homestead). The farm's double hayrack (toplar) has a beam carved with initials and a date, probably 1881. Pin from the GPS of photos taken during a family visit in September 2026, matching the OpenStreetMap point for Krašce 5.",
+      "links": [
+        {
+          "href": "worksheets/pistotnik-grill/grill-stephan-anna.html",
+          "label": "Open worksheet: grill-stephan-anna"
+        }
+      ],
+      "photos": [
+        {
+          "src": "photos/krasce5-hayrack.jpg",
+          "thumb": "photos/krasce5-hayrack-thumb.jpg",
+          "caption": "The double hayrack (toplar)",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/krasce5-hayrack-side.jpg",
+          "thumb": "photos/krasce5-hayrack-side-thumb.jpg",
+          "caption": "The hayrack from the lane",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/krasce5-hayrack-loft.jpg",
+          "thumb": "photos/krasce5-hayrack-loft-thumb.jpg",
+          "caption": "Inside the hayrack loft",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/krasce5-beam-carving.jpg",
+          "thumb": "photos/krasce5-beam-carving-thumb.jpg",
+          "caption": "Carved beam in the hayrack: initials and a date, probably 1881",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
+      ]
+    },
+    {
+      "id": "99ddb142-bcaf-4c4c-bd1a-34cd20786952",
+      "name": "Osredek 27 — old Osredek 11, Preskar home",
+      "lat": 46.01968,
+      "lng": 15.61804,
+      "track": "homestead",
+      "fullPath": "Osredek pri Podsredi 27, Kozje, Styria (Štajerska), Slovenia",
+      "families": [
+        {
+          "name": "Preskar",
+          "summary": "Shown to the family in September 2026 as the ancestral Preskar home and the place the Preskar name comes from (preska, a clearing). Per Gary, old Osredek no. 11, the documented early Preskar house in his research, is today's no. 27, so the family tradition and the records point to the same farm."
+        }
+      ],
+      "description": "Farm at Osredek pri Podsredi 27, near the Šulc farm stamp point on the local walking trail. A trail sign here points to \"Preskarjev mlin\" (Preskar's mill), 50 minutes on, and the trail board lists a stop called Preska. Visited in September 2026 as the \"ancestral Preskar home\"; pin on the OpenStreetMap point for Osredek pri Podsredi 27, matching the photo GPS.",
+      "photos": [
+        {
+          "src": "photos/osredek27-house.jpg",
+          "thumb": "photos/osredek27-house-thumb.jpg",
+          "caption": "The farm at Osredek 27",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/osredek27-farm.jpg",
+          "thumb": "photos/osredek27-farm-thumb.jpg",
+          "caption": "Farm buildings and orchard",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/osredek27-trail-board.jpg",
+          "thumb": "photos/osredek27-trail-board-thumb.jpg",
+          "caption": "The old house and the walking-trail board",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/osredek27-signpost.jpg",
+          "thumb": "photos/osredek27-signpost-thumb.jpg",
+          "caption": "Trail sign to \"Preskarjev mlin\" (Preskar's mill)",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
+      ]
+    },
+    {
+      "id": "1741dddb-a713-4d14-8c7b-69278fa1f5fd",
+      "name": "Hörberg 5 — Dobrautz house (today Podsreda 13)",
+      "lat": 46.0492,
+      "lng": 15.58819,
+      "track": "homestead",
+      "fullPath": "Markt Hörberg 5, today Podsreda 13, Styria (Štajerska), Slovenia",
+      "families": [
+        {
+          "name": "Dobrautz",
+          "years": "1772–1830s",
+          "summary": "Mathias Dobrautz was born here in 1772 (Podsreda 01934, pg. 7); his wife Gertraud died here on 25 May 1832 (Podsreda deaths 01948, scan 28). Their daughter Agnes Dobrautz (b. 4 Nov 1812) married Franz Preskar in 1836; she is our direct ancestor. The family also appears in the registers as Speliz and Marktler.",
+          "links": [
+            {
+              "href": "worksheets/preskar/preskar-dobrautz-mathias-gertrude.html",
+              "label": "Open worksheet: preskar-dobrautz-mathias-gertrude"
+            }
+          ]
+        }
+      ],
+      "description": "The Dobrautz (Dobravc) house in the market of Hörberg (Podsreda). Old Markt Hörberg 5 is today's Podsreda 13, per Tadej's house sheet (\"Podsreda 13 (Markt zu Hörburg 5)\"), which also names Mattheus Dobrautz as owner in the 1825–1829 Franciscan cadastre (building 140: house, stable and yard). The house is still in the Dobravc family. The old timber granary on its stone base stands beside the lane. Pin from the GPS of photos taken during a family visit in September 2026, matching the OpenStreetMap point for Podsreda 13.",
+      "links": [
+        {
+          "href": "worksheets/preskar/preskar-dobrautz-mathias-gertrude.html",
+          "label": "Open worksheet: preskar-dobrautz-mathias-gertrude"
+        }
+      ],
+      "photos": [
+        {
+          "src": "photos/podsreda13-granary.jpg",
+          "thumb": "photos/podsreda13-granary-thumb.jpg",
+          "caption": "The old timber granary on its stone base",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/podsreda13-granary-side.jpg",
+          "thumb": "photos/podsreda13-granary-side-thumb.jpg",
+          "caption": "The granary from the lane",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        },
+        {
+          "src": "photos/podsreda13-view.jpg",
+          "thumb": "photos/podsreda13-view-thumb.jpg",
+          "caption": "Looking out over the valley from the farm",
+          "credit": "Photos: Katie & Sam Costello, Sept 2026"
+        }
+      ]
+    },
+    {
+      "id": "11b38372-4e64-4fd7-abdc-ad2cc01e1d6a",
+      "name": "Podsreda 21 — Gersina land (Zupan farm)",
+      "lat": 46.04636,
+      "lng": 15.58341,
+      "track": "homestead",
+      "fullPath": "Podsreda 21, Styria (Štajerska), Slovenia",
+      "families": [
+        {
+          "name": "Gersina",
+          "summary": "Gregor Gersina had three buildings: two here, west of the market town and next to the Šimončič/Preskar land at Hörberg 17 (the larger farm), and a house in the market itself, Hörberg 20 (today Podsreda 38). Gary notes that families often kept a \"market\" house in town as well as the farmhouse where they worked. Anna Gersina, sister of our ancestor Apollonia Gersina, married Jakob Suppan (Zupan) in 1851, and the Zupan family descends from them."
+        }
+      ],
+      "description": "Farm on the site of the old Gersina outbuildings. Today it is a Zupan family farm; the family welcomed relatives here in September 2026. Pin from the photo GPS, matching the OpenStreetMap point for Podsreda 21."
     }
   ],
   "familyColors": {
