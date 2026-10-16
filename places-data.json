@@ -631,8 +631,8 @@
         "en": "SP1 — Vaupetič House",
         "sl": "SP1 — hiša Vaupetič"
       },
-      "lat": 46.2122009,
-      "lng": 14.648729,
+      "lat": 46.212667,
+      "lng": 14.649537,
       "track": "homestead",
       "fullPath": {
         "en": "SP1 — Vaupetič House, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
@@ -643,8 +643,8 @@
         "Vaupetič"
       ],
       "description": {
-        "en": "SA name: \"Vaupetič House\". 1827 owner: Franz Rems. Pin re-plotted 2026-07-26 from Gary's annotated 1827 cadastral map (bldgs 7 & 8, south of SP2), anchored to SP3's real coordinates — approximate, not surveyed.",
-        "sl": "Hišno ime v status animarum: »Vaupetič«. Lastnik leta 1827: Franz Rems. Oznaka je bila 26. 7. 2026 na novo postavljena po Garyjevi označeni katastrski karti iz leta 1827 (stavbi 7 in 8, južno od SP2), glede na dejanske koordinate SP3 — približno, ne izmerjeno."
+        "en": "SA name: \"Vaupetič House\". 1827 owner: Franz Rems. Cadastral bldgs 7 & 8. Pin moved 2026-10-16 onto the modern building that matches cadastral building 8 (next to today's Zgornje Palovče 4), by fitting Gary's Arcanum screenshot of the 1826 cadastre to today's OpenStreetMap buildings and roads (anchored on the Budnar house = bldg 10) — accurate to about 5–10 m.",
+        "sl": "Hišno ime v status animarum: »Vaupetič«. Lastnik leta 1827: Franz Rems. Katastrski stavbi 7 in 8. Oznaka je bila 16. 10. 2026 premaknjena na današnjo stavbo, ki ustreza katastrski stavbi 8 (ob današnji hiši Zgornje Palovče 4), s prilagoditvijo Garyjevega posnetka franciscejskega katastra iz leta 1826 (Arcanum) današnjim stavbam in cestam na OpenStreetMap (izhodišče: Budnarjeva hiša = stavba 10) — natančnost približno 5–10 m."
       },
       "events": [
         {
@@ -1037,8 +1037,8 @@
         "en": "SP4 — Šuštar House",
         "sl": "SP4 — hiša Šuštar"
       },
-      "lat": 46.2136839,
-      "lng": 14.650287,
+      "lat": 46.213202,
+      "lng": 14.650198,
       "track": "homestead",
       "fullPath": {
         "en": "SP4 — Šuštar House, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
@@ -1048,8 +1048,8 @@
         "Rems"
       ],
       "description": {
-        "en": "SA name: \"Šuštar\" (shoemaker), 1/2 Hubler. 1827 owner: Thomas Rems. Pin re-plotted 2026-07-26 from Gary's annotated 1827 cadastral map (bldgs 11-13, northeast of SP3 across the road), anchored to SP3's real coordinates — approximate, not surveyed.",
-        "sl": "Hišno ime v status animarum: »Šuštar« (čevljar), polovični kmet (1/2 Hubler). Lastnik leta 1827: Thomas Rems. Oznaka je bila 26. 7. 2026 na novo postavljena po Garyjevi označeni katastrski karti iz leta 1827 (stavbe 11–13, severovzhodno od SP3 čez cesto), glede na dejanske koordinate SP3 — približno, ne izmerjeno."
+        "en": "SA name: \"Šuštar\" (shoemaker), 1/2 Hubler. 1827 owner: Thomas Rems. Cadastral bldgs 11–13. Pin moved 2026-10-16 onto today's Zgornje Palovče 6, which stands on cadastral building 12 (within about 3 m), by fitting Gary's Arcanum screenshot of the 1826 cadastre to today's OpenStreetMap buildings and roads (anchored on the Budnar house = bldg 10) — accurate to about 5–10 m.",
+        "sl": "Hišno ime v status animarum: »Šuštar« (čevljar), polovični kmet (1/2 Hubler). Lastnik leta 1827: Thomas Rems. Katastrske stavbe 11–13. Oznaka je bila 16. 10. 2026 premaknjena na današnjo hišo Zgornje Palovče 6, ki stoji na mestu katastrske stavbe 12 (v razdalji približno 3 m), s prilagoditvijo Garyjevega posnetka franciscejskega katastra iz leta 1826 (Arcanum) današnjim stavbam in cestam na OpenStreetMap (izhodišče: Budnarjeva hiša = stavba 10) — natančnost približno 5–10 m."
       },
       "events": [
         {
@@ -1137,8 +1137,8 @@
         "en": "SP5 — Rems House",
         "sl": "SP5 — hiša Rems"
       },
-      "lat": 46.2134589,
-      "lng": 14.651585,
+      "lat": 46.212809,
+      "lng": 14.65008,
       "track": "homestead",
       "fullPath": {
         "en": "SP5 — Rems House, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
@@ -1150,8 +1150,8 @@
         "Kladnik"
       ],
       "description": {
-        "en": "SA name: \"Rems 1/2 Hubler\", later ZP9. 1827 owner: Joseph Koschir. Pin re-plotted 2026-07-26 from Gary's annotated 1827 cadastral map (bldgs 14, 15, 18, east of SP4 between SP4 and SP6), anchored to SP3's real coordinates — approximate, not surveyed.",
-        "sl": "Hišno ime v status animarum: »Rems 1/2 Hubler« (polovični kmet), pozneje ZP9. Lastnik leta 1827: Joseph Koschir. Oznaka je bila 26. 7. 2026 na novo postavljena po Garyjevi označeni katastrski karti iz leta 1827 (stavbe 14, 15 in 18, vzhodno od SP4, med SP4 in SP6), glede na dejanske koordinate SP3 — približno, ne izmerjeno."
+        "en": "SA name: \"Rems 1/2 Hubler\", later ZP9. 1827 owner: Joseph Koschir. Cadastral bldgs 14, 15 and 18. Pin moved 2026-10-16 to the centre of those buildings, by fitting Gary's Arcanum screenshot of the 1826 cadastre to today's OpenStreetMap buildings and roads (anchored on the Budnar house = bldg 10) — accurate to about 5–10 m. Building 14 matches today's Zgornje Palovče 7; buildings 15 and 18 no longer stand.",
+        "sl": "Hišno ime v status animarum: »Rems 1/2 Hubler« (polovični kmet), pozneje ZP9. Lastnik leta 1827: Joseph Koschir. Katastrske stavbe 14, 15 in 18. Oznaka je bila 16. 10. 2026 premaknjena v središče teh stavb, s prilagoditvijo Garyjevega posnetka franciscejskega katastra iz leta 1826 (Arcanum) današnjim stavbam in cestam na OpenStreetMap (izhodišče: Budnarjeva hiša = stavba 10) — natančnost približno 5–10 m. Stavba 14 ustreza današnji hiši Zgornje Palovče 7; stavbi 15 in 18 ne stojita več."
       },
       "events": [
         {
@@ -1244,8 +1244,8 @@
         "en": "SP6 — Oraschim/Urankar House",
         "sl": "SP6 — hiša Oraschim/Urankar"
       },
-      "lat": 46.2129199,
-      "lng": 14.652493,
+      "lat": 46.212736,
+      "lng": 14.649801,
       "track": "homestead",
       "fullPath": {
         "en": "SP6 — Oraschim/Urankar House, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
@@ -1256,8 +1256,8 @@
         "Urankar"
       ],
       "description": {
-        "en": "Oraschim / Urankar House. 1827 owner: Martin Oraschim. Pin re-plotted 2026-07-26 from Gary's annotated 1827 cadastral map (bldgs 16-17, southeast end of the cluster), anchored to SP3's real coordinates — approximate, not surveyed.",
-        "sl": "Hiša Oraschim / Urankar. Lastnik leta 1827: Martin Oraschim. Oznaka je bila 26. 7. 2026 na novo postavljena po Garyjevi označeni katastrski karti iz leta 1827 (stavbi 16–17, jugovzhodni konec skupine hiš), glede na dejanske koordinate SP3 — približno, ne izmerjeno."
+        "en": "Oraschim / Urankar House. 1827 owner: Martin Oraschim. Cadastral bldgs 16–17. Pin moved 2026-10-16 to the centre of those buildings, by fitting Gary's Arcanum screenshot of the 1826 cadastre to today's OpenStreetMap buildings and roads (anchored on the Budnar house = bldg 10) — accurate to about 5–10 m. Neither building stands today.",
+        "sl": "Hiša Oraschim / Urankar. Lastnik leta 1827: Martin Oraschim. Katastrski stavbi 16–17. Oznaka je bila 16. 10. 2026 premaknjena v središče teh stavb, s prilagoditvijo Garyjevega posnetka franciscejskega katastra iz leta 1826 (Arcanum) današnjim stavbam in cestam na OpenStreetMap (izhodišče: Budnarjeva hiša = stavba 10) — natančnost približno 5–10 m. Nobena od stavb danes ne stoji več."
       },
       "events": [
         {
@@ -1384,8 +1384,8 @@
         "en": "SP8",
         "sl": "SP8"
       },
-      "lat": 46.2121109,
-      "lng": 14.648924,
+      "lat": 46.212577,
+      "lng": 14.649732,
       "track": "homestead",
       "fullPath": {
         "en": "SP8, Zgornje Palovče, Vranja Peč, Carniola (Kranjska), Slovenia",
@@ -1396,8 +1396,8 @@
         "Bernoth"
       ],
       "description": {
-        "en": "No cadastral records — Gary suspects the house burned down. Pin nudged 2026-07-26 next to SP1: the house-number crosswalk shows SP8's pre-1800 number was \"SP1,\" suggesting it may have stood near today's SP1 site — speculative, not a confirmed location.",
-        "sl": "Ni katastrskih zapisov — Gary domneva, da je hiša pogorela. Oznaka je bila 26. 7. 2026 premaknjena ob SP1: primerjalna tabela hišnih številk kaže, da je imela SP8 pred letom 1800 številko »SP1«, zato je morda stala blizu današnje SP1 — domneva, lokacija ni potrjena."
+        "en": "No cadastral records — Gary suspects the house burned down. Pin nudged 2026-07-26 next to SP1: the house-number crosswalk shows SP8's pre-1800 number was \"SP1,\" suggesting it may have stood near today's SP1 site — speculative, not a confirmed location. Moved 2026-10-16 together with SP1 (same offset) after SP1 was re-plotted from the cadastre fit.",
+        "sl": "Ni katastrskih zapisov — Gary domneva, da je hiša pogorela. Oznaka je bila 26. 7. 2026 premaknjena ob SP1: primerjalna tabela hišnih številk kaže, da je imela SP8 pred letom 1800 številko »SP1«, zato je morda stala blizu današnje SP1 — domneva, lokacija ni potrjena. Oznaka je bila 16. 10. 2026 premaknjena skupaj z SP1 (enak zamik), potem ko je bil SP1 na novo postavljen po prilagoditvi katastra."
       },
       "events": [
         {
