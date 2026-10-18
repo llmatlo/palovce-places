@@ -3,22 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Osredkar / Rems / Preskar / Pistotnik Places</title>
-<meta name="description" content="Interactive map of ancestral homesteads, villages, and migration routes for the Osredkar, Rems, Preskar, and Pistotnik family lines of Zgornje Palovče, Slovenia.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://llmatlo.github.io/palovce-places/">
-<meta property="og:title" content="Osredkar / Rems / Preskar / Pistotnik Places">
-<meta property="og:description" content="Interactive map of ancestral homesteads, villages, and migration routes for the Osredkar, Rems, Preskar, and Pistotnik family lines of Zgornje Palovče, Slovenia.">
-<meta property="og:image" content="https://llmatlo.github.io/palovce-places/images/map-preview.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Osredkar / Rems / Preskar / Pistotnik Places">
-<meta name="twitter:description" content="Interactive map of ancestral homesteads, villages, and migration routes in Zgornje Palovče, Slovenia.">
-<meta name="twitter:image" content="https://llmatlo.github.io/palovce-places/images/map-preview.jpg">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f5f0eb; color: #3b3228; }
+/* Full-screen map: nothing scrolls. Also stops the collapsed side panel (slid
+   off to the right) from widening the page on phones. */
+html, body { overflow: hidden; }
+body { position: relative; height: 100vh; }
 
 #map { width: 100%; height: 100vh; }
 #map.map-load-error {
@@ -69,13 +62,16 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background
   box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
 }
 .timeline-controls { display: flex; align-items: center; gap: 14px; }
-/* Optional caption (meta.timelineCaption) above the controls; map.js adds
-   body.has-timeline-caption so the side panel clears the taller bar. */
+/* Optional caption (meta.timelineCaption) above the controls. */
 .timeline-caption {
   font-size: 11px; color: #c7ccd1; text-align: center; margin-bottom: 6px;
 }
 body.has-timeline-caption .timeline-bar { padding-top: 8px; }
-body.has-timeline-caption .side-panel { bottom: 76px; }
+/* map.js keeps --timeline-height equal to the bar's real height (it grows with
+   a caption, and when the caption wraps on phones), so the side panel and
+   Leaflet's bottom controls (zoom, attribution) sit above it. */
+:root { --timeline-height: 56px; }
+.leaflet-bottom { bottom: var(--timeline-height); }
 .timeline-play-btn {
   background: #faf9f7; border: 1px solid #d8d4cc;
   color: #6b6355; padding: 6px 10px; cursor: pointer;
@@ -92,8 +88,9 @@ body.has-timeline-caption .side-panel { bottom: 76px; }
 }
 
 /* Side panel */
+:root { --panel-width: 280px; }
 .side-panel {
-  position: absolute; top: 52px; right: 0; bottom: 56px; width: 280px;
+  position: absolute; top: 52px; right: 0; bottom: var(--timeline-height); width: var(--panel-width);
   z-index: 999; background: #faf9f7; border-left: 2px solid #d8d4cc;
   overflow-y: auto; transition: transform 0.3s;
   padding: 16px;
@@ -102,13 +99,24 @@ body.has-timeline-caption .side-panel { bottom: 76px; }
 .side-panel.hidden { transform: translateX(100%); }
 
 .panel-toggle {
-  position: absolute; top: 62px; right: 280px; z-index: 1000;
+  position: absolute; top: 62px; right: var(--panel-width); z-index: 1000;
   background: #faf9f7; border: 1px solid #d8d4cc; border-right: none;
   color: #6b6355; padding: 8px 6px; cursor: pointer;
   border-radius: 4px 0 0 4px; font-size: 14px; transition: all 0.3s;
 }
 .panel-toggle:hover { color: #2c3e50; }
 .panel-toggle.panel-hidden { right: 0; }
+
+/* Phones: a fixed 280px panel covers most of the screen. Narrower here, and it
+   starts collapsed (map.js: buildMap) until the viewer opens it. */
+@media (max-width: 480px) {
+  :root { --panel-width: 78vw; }
+  .timeline-bar { padding-left: 12px; padding-right: 12px; }
+  .timeline-controls { gap: 10px; }
+  .timeline-date { min-width: 0; font-size: 12px; }
+  /* The wrapped map credit would otherwise cover the zoom-out button. */
+  .leaflet-control-attribution { max-width: calc(100vw - 64px); font-size: 10px; }
+}
 
 .panel-section { margin-bottom: 20px; }
 .panel-section h3 {
@@ -295,6 +303,19 @@ body.hide-chips .family-chip-icon { display: none; }
 }
 
 </style>
+<!-- palovce-places <head> extras: added at build time by
+     gary-research/places/publish-palovce.py (inline-data.py --head) -->
+<title>Osredkar / Rems / Preskar / Pistotnik Places</title>
+<meta name="description" content="Interactive map of ancestral homesteads, villages, and migration routes for the Osredkar, Rems, Preskar, and Pistotnik family lines of Zgornje Palovče, Slovenia.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://llmatlo.github.io/palovce-places/">
+<meta property="og:title" content="Osredkar / Rems / Preskar / Pistotnik Places">
+<meta property="og:description" content="Interactive map of ancestral homesteads, villages, and migration routes for the Osredkar, Rems, Preskar, and Pistotnik family lines of Zgornje Palovče, Slovenia.">
+<meta property="og:image" content="https://llmatlo.github.io/palovce-places/images/map-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Osredkar / Rems / Preskar / Pistotnik Places">
+<meta name="twitter:description" content="Interactive map of ancestral homesteads, villages, and migration routes in Zgornje Palovče, Slovenia.">
+<meta name="twitter:image" content="https://llmatlo.github.io/palovce-places/images/map-preview.jpg">
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d3dc68be931e457bbf40324664777eae"}'></script>
 </head>
 <body>
@@ -316,7 +337,7 @@ body.hide-chips .family-chip-icon { display: none; }
   </div>
 </div>
 
-<button class="panel-toggle" onclick="togglePanel()">&#9776;</button>
+<button type="button" class="panel-toggle" id="panelToggle" onclick="togglePanel()" aria-controls="sidePanel" aria-expanded="true">&#9776;</button>
 
 <div class="side-panel" id="sidePanel">
   <div class="panel-section">
@@ -358,6 +379,10 @@ body.hide-chips .family-chip-icon { display: none; }
     "timelineCaption": {
       "en": "Drag to see events appear as they happened, or press ▶ to play through the timeline automatically",
       "sl": "Povlecite drsnik, da se dogodki prikažejo v vrstnem redu, kot so se zgodili, ali pritisnite ▶ za samodejno predvajanje časovnega traku"
+    },
+    "attribution": {
+      "en": "© 2026 Gary DelNero family research",
+      "sl": "© 2026 Gary DelNero family research"
     },
     "languages": [
       "en",
@@ -3660,6 +3685,7 @@ body.hide-chips .family-chip-icon { display: none; }
     "Poljansek": "#0891b2"
   }
 }
+
 </script>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -3899,7 +3925,7 @@ function buildMarkerForStop(stop) {
 // write-up directory — used to badge markers that have a documented "family
 // sheet" behind them, as distinct from a bare place pin with no write-up.
 // Matches "worksheets/" anywhere in the href, not just with a leading slash —
-// a deployed site may rewrite "worksheets/x.html" to "worksheets/x.html"
+// a deployed site may rewrite "../worksheets/x.html" to "worksheets/x.html"
 // (no leading slash) if index.html moves to the repo root, so anchoring on
 // "/worksheets/" would silently miss those.
 function hasWorksheetLink(stop) {
@@ -4274,12 +4300,21 @@ function buildMap() {
   map = L.map('map', { center, zoom, zoomControl: false });
   L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
+  // Optional site credit (meta.attribution) goes ahead of the tile credit.
+  const credit = t(DATA.meta && DATA.meta.attribution);
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-    attribution: '&copy; 2026 Gary DelNero family research &middot; Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, TomTom, Garmin, FAO, NOAA, USGS, &copy; OpenStreetMap contributors, and the GIS User Community',
+    attribution: (credit ? `${esc(credit)} &middot; ` : '') +
+      'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, TomTom, Garmin, FAO, NOAA, USGS, &copy; OpenStreetMap contributors, and the GIS User Community',
     maxZoom: 18
   }).addTo(map);
 
-  map.panBy([-140, 0], { animate: false });
+  // Phones start with the panel collapsed (it would cover most of the map);
+  // elsewhere it starts open, so shift the view left to keep the centre visible.
+  if (window.matchMedia('(max-width: 480px)').matches) {
+    setPanelOpen(false);
+  } else {
+    map.panBy([-140, 0], { animate: false });
+  }
 
   (DATA.stops || []).forEach(stop => {
     const trackKey = stop.track || 'default';
@@ -4365,9 +4400,11 @@ function setupTimeline() {
   const dateLabel = document.getElementById('timelineDate');
 
   // No dated events anywhere: no timeline, every stop shown.
+  const bar = document.querySelector('.timeline-bar');
   if (!uniqueDates.length) {
-    document.querySelector('.timeline-bar').style.display = 'none';
+    bar.style.display = 'none';
     document.body.classList.remove('has-timeline-caption');
+    document.documentElement.style.setProperty('--timeline-height', '0px');
     applyVisibility();
     return;
   }
@@ -4385,6 +4422,11 @@ function setupTimeline() {
   });
 
   document.getElementById('timelinePlayBtn').addEventListener('click', () => togglePlay(slider));
+
+  // Track the bar's real height (caption, wrapping, language switch) for the CSS.
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty('--timeline-height', `${bar.offsetHeight}px`);
+  }).observe(bar);
 
   applyVisibility();
 }
@@ -4411,11 +4453,15 @@ function togglePlay(slider) {
   }, 600);
 }
 
+function setPanelOpen(open) {
+  document.getElementById('sidePanel').classList.toggle('hidden', !open);
+  const btn = document.getElementById('panelToggle');
+  btn.classList.toggle('panel-hidden', !open);
+  btn.setAttribute('aria-expanded', String(open));
+}
+
 function togglePanel() {
-  const panel = document.getElementById('sidePanel');
-  const btn = document.querySelector('.panel-toggle');
-  panel.classList.toggle('hidden');
-  btn.classList.toggle('panel-hidden');
+  setPanelOpen(document.getElementById('sidePanel').classList.contains('hidden'));
   setTimeout(() => map.invalidateSize(), 350);
 }
 
