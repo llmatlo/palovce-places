@@ -341,6 +341,20 @@
             "sl": "Odpri delovni list (v angleščini): osredkar-homestead-narrative-summary"
           }
         }
+      ],
+      "photos": [
+        {
+          "src": "photos/sovinja-bela-pec-sign-2024.jpg",
+          "thumb": "photos/sovinja-bela-pec-sign-2024-thumb.jpg",
+          "caption": {
+            "en": "Signpost at the fork by the creek, where the road splits for Sovinja Peč and Bela Peč, May 2024. Gary found the spot in Street View.",
+            "sl": "Kažipot na razcepu ob potoku, kjer se cesta odcepi proti Sovinji Peči in Beli Peči, maj 2024. Mesto je Gary našel v Street View."
+          },
+          "credit": {
+            "en": "Photo courtesy of Gary DelNero, May 2024",
+            "sl": "Fotografija: z dovoljenjem Garyja DelNera, maj 2024"
+          }
+        }
       ]
     },
     {
