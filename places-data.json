@@ -8,6 +8,10 @@
       "en": "Interactive map of ancestral homesteads, villages, and migration routes for the Osredkar, Rems, Preskar, and Pistotnik family lines of Zgornje Palovče, Slovenia.",
       "sl": "Interaktivni zemljevid domačij, vasi in selitvenih poti prednikov iz rodbin Osredkar, Rems, Preskar in Pistotnik iz Zgornjih Palovč v Sloveniji. (Slovenski prevod je osnutek.)"
     },
+    "timelineCaption": {
+      "en": "Drag to see events appear as they happened, or press ▶ to play through the timeline automatically",
+      "sl": "Povlecite drsnik, da se dogodki prikažejo v vrstnem redu, kot so se zgodili, ali pritisnite ▶ za samodejno predvajanje časovnega traku"
+    },
     "languages": [
       "en",
       "sl"

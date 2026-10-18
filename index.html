@@ -66,9 +66,16 @@ body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   border-top: 2px solid #7f8c9a;
   padding: 10px 20px;
-  display: flex; align-items: center; gap: 14px;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
 }
+.timeline-controls { display: flex; align-items: center; gap: 14px; }
+/* Optional caption (meta.timelineCaption) above the controls; map.js adds
+   body.has-timeline-caption so the side panel clears the taller bar. */
+.timeline-caption {
+  font-size: 11px; color: #c7ccd1; text-align: center; margin-bottom: 6px;
+}
+body.has-timeline-caption .timeline-bar { padding-top: 8px; }
+body.has-timeline-caption .side-panel { bottom: 76px; }
 .timeline-play-btn {
   background: #faf9f7; border: 1px solid #d8d4cc;
   color: #6b6355; padding: 6px 10px; cursor: pointer;
@@ -301,9 +308,12 @@ body.hide-chips .family-chip-icon { display: none; }
 <div id="map"></div>
 
 <div class="timeline-bar">
-  <button class="timeline-play-btn" id="timelinePlayBtn">&#9654;</button>
-  <input type="range" id="timelineSlider" min="0" max="0" value="0" step="1">
-  <span class="timeline-date" id="timelineDate"></span>
+  <div class="timeline-caption" id="timelineCaption" style="display:none;"></div>
+  <div class="timeline-controls">
+    <button type="button" class="timeline-play-btn" id="timelinePlayBtn">&#9654;</button>
+    <input type="range" id="timelineSlider" min="0" max="0" value="0" step="1">
+    <span class="timeline-date" id="timelineDate"></span>
+  </div>
 </div>
 
 <button class="panel-toggle" onclick="togglePanel()">&#9776;</button>
@@ -344,6 +354,10 @@ body.hide-chips .family-chip-icon { display: none; }
     "subtitle": {
       "en": "Interactive map of ancestral homesteads, villages, and migration routes for the Osredkar, Rems, Preskar, and Pistotnik family lines of Zgornje Palovče, Slovenia.",
       "sl": "Interaktivni zemljevid domačij, vasi in selitvenih poti prednikov iz rodbin Osredkar, Rems, Preskar in Pistotnik iz Zgornjih Palovč v Sloveniji. (Slovenski prevod je osnutek.)"
+    },
+    "timelineCaption": {
+      "en": "Drag to see events appear as they happened, or press ▶ to play through the timeline automatically",
+      "sl": "Povlecite drsnik, da se dogodki prikažejo v vrstnem redu, kot so se zgodili, ali pritisnite ▶ za samodejno predvajanje časovnega traku"
     },
     "languages": [
       "en",
@@ -3659,8 +3673,16 @@ body.hide-chips .family-chip-icon { display: none; }
 let _lang = 'en';
 
 const UI_STRINGS = {
-  en: { tracks: 'Tracks', legend: 'Legend', showDetails: 'Show details →', hospital: 'Hospital stay' },
-  sl: { tracks: 'Sloji', legend: 'Legenda', showDetails: 'Pokaži podrobnosti →', hospital: 'Bivanje v bolnišnici' }
+  en: {
+    tracks: 'Tracks', legend: 'Legend', showDetails: 'Show details →', hospital: 'Hospital stay',
+    playTip: 'Play through the timeline automatically',
+    sliderTip: 'Drag to travel through time — markers appear as their date is reached'
+  },
+  sl: {
+    tracks: 'Sloji', legend: 'Legenda', showDetails: 'Pokaži podrobnosti →', hospital: 'Bivanje v bolnišnici',
+    playTip: 'Samodejno predvajaj časovni trak',
+    sliderTip: 'Povlecite za premik skozi čas — oznake se prikažejo, ko je dosežen njihov datum'
+  }
 };
 
 const LANGUAGE_LABELS = { en: 'EN', sl: 'SL' };
@@ -4207,6 +4229,24 @@ function applyHeadings() {
   document.getElementById('mapSubtitle').textContent = t(DATA.meta && DATA.meta.subtitle);
   document.getElementById('tracksHeading').textContent = uiText('tracks');
   document.getElementById('legendHeading').textContent = uiText('legend');
+  applyTimelineText();
+}
+
+// Hover tips + accessible names for the timeline controls, and the optional
+// map-specific caption above them (meta.timelineCaption).
+function applyTimelineText() {
+  const playBtn = document.getElementById('timelinePlayBtn');
+  const slider = document.getElementById('timelineSlider');
+  playBtn.title = uiText('playTip');
+  playBtn.setAttribute('aria-label', uiText('playTip'));
+  slider.title = uiText('sliderTip');
+  slider.setAttribute('aria-label', uiText('sliderTip'));
+
+  const caption = t(DATA.meta && DATA.meta.timelineCaption);
+  const captionEl = document.getElementById('timelineCaption');
+  captionEl.textContent = caption;
+  captionEl.style.display = caption ? '' : 'none';
+  document.body.classList.toggle('has-timeline-caption', !!caption);
 }
 
 // Re-renders everything that shows data text. Popups and tooltips are bound
@@ -4327,6 +4367,7 @@ function setupTimeline() {
   // No dated events anywhere: no timeline, every stop shown.
   if (!uniqueDates.length) {
     document.querySelector('.timeline-bar').style.display = 'none';
+    document.body.classList.remove('has-timeline-caption');
     applyVisibility();
     return;
   }
