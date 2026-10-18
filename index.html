@@ -14,12 +14,17 @@
 <meta name="twitter:title" content="Osredkar / Rems / Preskar / Pistotnik Places">
 <meta name="twitter:description" content="Interactive map of ancestral homesteads, villages, and migration routes in Zgornje Palovče, Slovenia.">
 <meta name="twitter:image" content="https://llmatlo.github.io/palovce-places/images/map-preview.jpg">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f5f0eb; color: #3b3228; }
 
 #map { width: 100%; height: 100vh; }
+#map.map-load-error {
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; color: #dc2626; font-size: 16px; text-align: center;
+}
 
 /* Top bar */
 .top-bar {
@@ -3643,7 +3648,8 @@ body.hide-chips .family-chip-icon { display: none; }
 }
 </script>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 // ─── Languages ──────────────────────────────────────────────────────
 // Display-text fields in the data may be a plain string or { en: "…", sl: "…" }.
@@ -3662,6 +3668,18 @@ const LANGUAGE_LABELS = { en: 'EN', sl: 'SL' };
 function t(value) {
   if (value && typeof value === 'object') return value[_lang] || value.en || '';
   return value || '';
+}
+
+// Data text is plain text, never HTML — escape it before it goes into markup.
+function esc(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// A value passed as a string argument inside an inline onclick="…" attribute.
+function jsArg(value) {
+  return esc(JSON.stringify(String(value)));
 }
 
 function uiText(key) {
@@ -3689,7 +3707,7 @@ function buildLanguageToggle() {
   const langs = mapLanguages();
   if (langs.length < 2) return;
   el.innerHTML = langs.map(l =>
-    `<button type="button" class="lang-btn" data-lang="${l}" onclick="setLanguage('${l}')">${LANGUAGE_LABELS[l] || l.toUpperCase()}</button>`
+    `<button type="button" class="lang-btn" data-lang="${esc(l)}" onclick="setLanguage(${jsArg(l)})">${esc(LANGUAGE_LABELS[l] || l.toUpperCase())}</button>`
   ).join('');
   el.style.display = 'flex';
   markActiveLanguage();
@@ -3759,7 +3777,7 @@ function buildOccupancyChip(stop) {
   const lines = names.map(name => {
     const { earliest, latest } = families[name];
     const range = earliest === latest ? t(earliest.date) : `${t(earliest.date)}–${t(latest.date)}`;
-    return `<div class="family-chip-line"><strong>${name}</strong> <span class="family-chip-range">(${range})</span></div>`;
+    return `<div class="family-chip-line"><strong>${esc(name)}</strong> <span class="family-chip-range">(${esc(range)})</span></div>`;
   });
   return `<div class="family-chip-inner">${lines.join('')}</div>`;
 }
@@ -3793,7 +3811,7 @@ function buildCircleMarker(stop) {
     fillOpacity: stop.highlight ? 0.9 : 0.85
   });
   marker.bindPopup(() => buildPopup(stop));
-  marker.bindTooltip(() => t(stop.name), { permanent: false, direction: 'top', offset: [0, -radius] });
+  marker.bindTooltip(() => esc(t(stop.name)), { permanent: false, direction: 'top', offset: [0, -radius] });
   return marker;
 }
 
@@ -3812,7 +3830,7 @@ function shapeSvg(shape, size, fill, stroke, strokeWidth, fillOpacity) {
     body = `<polygon points="${m},${p} ${s},${s} ${p},${s}"/>`;
   }
   return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="display:block">` +
-    `<g fill="${fill}" fill-opacity="${fillOpacity}" stroke="${stroke}" stroke-width="${strokeWidth}" stroke-linejoin="round">${body}</g></svg>`;
+    `<g fill="${esc(fill)}" fill-opacity="${fillOpacity}" stroke="${esc(stroke)}" stroke-width="${strokeWidth}" stroke-linejoin="round">${body}</g></svg>`;
 }
 
 // Same styling rules as buildCircleMarker (incl. `highlight`), drawn as a divIcon.
@@ -3830,7 +3848,7 @@ function buildShapeMarker(stop, shape) {
   const icon = L.divIcon({ className: 'shape-marker', html: svg, iconSize: [size, size], iconAnchor: [size / 2, size / 2] });
   const marker = L.marker([stop.lat, stop.lng], { icon });
   marker.bindPopup(() => buildPopup(stop));
-  marker.bindTooltip(() => t(stop.name), { permanent: false, direction: 'top', offset: [0, -size / 2] });
+  marker.bindTooltip(() => esc(t(stop.name)), { permanent: false, direction: 'top', offset: [0, -size / 2] });
   return marker;
 }
 
@@ -3838,13 +3856,13 @@ function buildHospitalMarker(stop) {
   const color = resolveStopColor(stop);
   const icon = L.divIcon({
     className: '',
-    html: `<div class="hospital-marker" style="background:${color}; width:18px; height:18px;"></div>`,
+    html: `<div class="hospital-marker" style="background:${esc(color)}; width:18px; height:18px;"></div>`,
     iconSize: [18, 18],
     iconAnchor: [9, 9]
   });
   const marker = L.marker([stop.lat, stop.lng], { icon });
   marker.bindPopup(() => buildPopup(stop));
-  marker.bindTooltip(() => t(stop.name), { permanent: false, direction: 'top', offset: [0, -9] });
+  marker.bindTooltip(() => esc(t(stop.name)), { permanent: false, direction: 'top', offset: [0, -9] });
   return marker;
 }
 
@@ -3918,9 +3936,9 @@ function togglePopupDetail(id) {
 function buildPopup(stop) {
   const gated = !!stop.gated;
 
-  let html = `<div class="popup-title">${t(stop.name)}</div>`;
+  let html = `<div class="popup-title">${esc(t(stop.name))}</div>`;
   if (gated && stop.fullPath) {
-    html += `<div class="popup-address">${t(stop.fullPath)}</div>`;
+    html += `<div class="popup-address">${esc(t(stop.fullPath))}</div>`;
   }
 
   const track = DATA.tracks && DATA.tracks[stop.track];
@@ -3929,7 +3947,7 @@ function buildPopup(stop) {
   const badgeColor = resolveStopColor(stop);
   const badgeLabel = status ? t(status.label) : (track ? t(track.label) : stop.track);
 
-  let details = `<span class="popup-badge" style="background:${badgeColor}">${badgeLabel}</span>`;
+  let details = `<span class="popup-badge" style="background:${esc(badgeColor)}">${esc(badgeLabel)}</span>`;
 
   // Family tags — plain strings render as static tags (see SCHEMA.md "Family/date
   // chips"); objects with a `summary` render as expandable tags (see "Family tags").
@@ -3939,12 +3957,12 @@ function buildPopup(stop) {
     stop.families.forEach((raw, i) => {
       const f = normalizeFamily(raw);
       const color = (DATA.familyColors && DATA.familyColors[f.name]) || '#666';
-      const label = f.years ? `${f.name} <span class="popup-family-tag-years">${t(f.years)}</span>` : f.name;
+      const label = f.years ? `${esc(f.name)} <span class="popup-family-tag-years">${esc(t(f.years))}</span>` : esc(f.name);
       if (f.summary) {
         const detailId = `popup-family-detail-${stop.id}-${i}`;
-        details += `<button type="button" class="popup-family-tag popup-family-tag-expandable" style="background:${color}" onclick="togglePopupDetail('${detailId}')">${label}</button>`;
+        details += `<button type="button" class="popup-family-tag popup-family-tag-expandable" style="background:${esc(color)}" onclick="togglePopupDetail(${jsArg(detailId)})">${label}</button>`;
       } else {
-        details += `<span class="popup-family-tag" style="background:${color}">${label}</span>`;
+        details += `<span class="popup-family-tag" style="background:${esc(color)}">${label}</span>`;
       }
     });
     details += '</div>';
@@ -3955,10 +3973,10 @@ function buildPopup(stop) {
       const f = normalizeFamily(raw);
       if (!f.summary) return;
       const detailId = `popup-family-detail-${stop.id}-${i}`;
-      details += `<div id="${detailId}" class="popup-family-detail" style="display:none;">`;
-      details += `<div class="popup-family-detail-summary">${t(f.summary)}</div>`;
+      details += `<div id="${esc(detailId)}" class="popup-family-detail" style="display:none;">`;
+      details += `<div class="popup-family-detail-summary">${esc(t(f.summary))}</div>`;
       (f.links || []).forEach(link => {
-        details += `<a class="popup-link" href="${link.href}" target="_blank">${t(link.label)}</a>`;
+        details += `<a class="popup-link" href="${esc(link.href)}" target="_blank" rel="noopener">${esc(t(link.label))}</a>`;
       });
       details += '</div>';
     });
@@ -3971,17 +3989,17 @@ function buildPopup(stop) {
   if (stop.photos && stop.photos.length) {
     details += '<div class="popup-photos">';
     stop.photos.forEach((p, i) => {
-      details += `<a class="popup-photo" href="${p.src}" target="_blank" title="${t(p.caption)}" onclick="return openLightbox(event, '${stop.id}', ${i})">` +
-        `<img src="${p.thumb || p.src}" alt="${t(p.caption)}" width="72" height="72" loading="lazy"></a>`;
+      details += `<a class="popup-photo" href="${esc(p.src)}" target="_blank" title="${esc(t(p.caption))}" onclick="return openLightbox(event, ${jsArg(stop.id)}, ${i})">` +
+        `<img src="${esc(p.thumb || p.src)}" alt="${esc(t(p.caption))}" width="72" height="72" loading="lazy"></a>`;
     });
     details += '</div>';
     const credits = [...new Set(stop.photos.map(p => t(p.credit)).filter(Boolean))];
-    if (credits.length) details += `<div class="popup-photo-credit">${credits.join(' · ')}</div>`;
+    if (credits.length) details += `<div class="popup-photo-credit">${esc(credits.join(' · '))}</div>`;
   }
 
   // Static prose, for stops without a dated events[] yet.
   if (stop.description) {
-    details += `<div class="popup-desc">${t(stop.description)}</div>`;
+    details += `<div class="popup-desc">${esc(t(stop.description))}</div>`;
   }
 
   const events = (stop.events || []).slice().sort((a, b) => {
@@ -3992,10 +4010,10 @@ function buildPopup(stop) {
     details += '<ul class="popup-events">';
     events.forEach(ev => {
       details += '<li class="popup-event">';
-      details += `<div class="popup-event-date">${t(ev.date)}</div>`;
-      if (ev.campaign) details += `<div class="popup-event-campaign">${t(ev.campaign)}</div>`;
-      details += `<div class="popup-event-text">${t(ev.text)}</div>`;
-      if (ev.source) details += `<div class="popup-event-source">${t(ev.source)}</div>`;
+      details += `<div class="popup-event-date">${esc(t(ev.date))}</div>`;
+      if (ev.campaign) details += `<div class="popup-event-campaign">${esc(t(ev.campaign))}</div>`;
+      details += `<div class="popup-event-text">${esc(t(ev.text))}</div>`;
+      if (ev.source) details += `<div class="popup-event-source">${esc(t(ev.source))}</div>`;
       details += '</li>';
     });
     details += '</ul>';
@@ -4005,14 +4023,14 @@ function buildPopup(stop) {
   // or a link back to a related static page like sp-houses.html).
   if (stop.links && stop.links.length) {
     stop.links.forEach(link => {
-      details += `<a class="popup-link" href="${link.href}" target="_blank">${t(link.label)}</a>`;
+      details += `<a class="popup-link" href="${esc(link.href)}" target="_blank" rel="noopener">${esc(t(link.label))}</a>`;
     });
   }
 
   if (gated) {
     const detailsId = `popup-details-${stop.id}`;
-    html += `<button type="button" class="popup-reveal-btn" onclick="togglePopupDetail('${detailsId}'); this.style.display='none';">${uiText('showDetails')}</button>`;
-    html += `<div id="${detailsId}" class="popup-details" style="display:none;">${details}</div>`;
+    html += `<button type="button" class="popup-reveal-btn" onclick="togglePopupDetail(${jsArg(detailsId)}); this.style.display='none';">${esc(uiText('showDetails'))}</button>`;
+    html += `<div id="${esc(detailsId)}" class="popup-details" style="display:none;">${details}</div>`;
   } else {
     html += details;
   }
@@ -4100,7 +4118,7 @@ function buildLegend() {
 
   if (DATA.statuses) {
     Object.values(DATA.statuses).forEach(s => {
-      legendEl.innerHTML += `<div class="legend-item"><div class="legend-dot" style="background:${s.color}"></div>${t(s.label)}</div>`;
+      legendEl.innerHTML += `<div class="legend-item"><div class="legend-dot" style="background:${esc(s.color)}"></div>${esc(t(s.label))}</div>`;
     });
   }
 
@@ -4112,8 +4130,8 @@ function buildLegend() {
     if (trackUsesOwnColor(key, track)) {
       const swatch = track.shape && track.shape !== 'circle'
         ? `<div class="legend-shape">${shapeSvg(track.shape, 14, track.color, 'rgba(0,0,0,0.25)', 1, 1)}</div>`
-        : `<div class="legend-dot" style="background:${track.color}"></div>`;
-      legendEl.innerHTML += `<div class="legend-item">${swatch}${t(track.label)}</div>`;
+        : `<div class="legend-dot" style="background:${esc(track.color)}"></div>`;
+      legendEl.innerHTML += `<div class="legend-item">${swatch}${esc(t(track.label))}</div>`;
     }
   });
 
@@ -4129,7 +4147,7 @@ function buildTrackToggles() {
   Object.keys(DATA.tracks).forEach(key => {
     const label = document.createElement('label');
     label.className = 'layer-toggle';
-    label.innerHTML = `<input type="checkbox" ${trackVisible[key] === false ? '' : 'checked'} data-track="${key}"> ${t(DATA.tracks[key].label)}`;
+    label.innerHTML = `<input type="checkbox" ${trackVisible[key] === false ? '' : 'checked'} data-track="${esc(key)}"> ${esc(t(DATA.tracks[key].label))}`;
     label.querySelector('input').addEventListener('change', (e) => {
       toggleTrack(key, e.target.checked);
     });
@@ -4149,15 +4167,30 @@ let playInterval = null;
 
 async function loadData() {
   // Prefer inline data (works on file://). Fall back to fetch for live editing via http://.
-  const inlineEl = document.getElementById('mapData');
-  const inlineText = inlineEl ? inlineEl.textContent.trim() : '';
-  if (inlineText && inlineText.startsWith('{')) {
-    DATA = JSON.parse(inlineText);
-  } else {
-    const resp = await fetch('data.json');
-    DATA = await resp.json();
+  try {
+    const inlineEl = document.getElementById('mapData');
+    const inlineText = inlineEl ? inlineEl.textContent.trim() : '';
+    if (inlineText && inlineText.startsWith('{')) {
+      DATA = JSON.parse(inlineText);
+    } else {
+      const resp = await fetch('data.json');
+      if (!resp.ok) throw new Error(`data.json: HTTP ${resp.status}`);
+      DATA = await resp.json();
+    }
+  } catch (err) {
+    showLoadError(err);
+    return;
   }
   buildMap();
+}
+
+// A broken data file should say so on screen, not leave a blank page.
+function showLoadError(err) {
+  console.error(err);
+  const el = document.getElementById('map');
+  el.classList.add('map-load-error');
+  el.textContent = `Could not load the map data: ${err.message}`;
+  document.querySelector('.timeline-bar').style.display = 'none';
 }
 
 // events[] isn't guaranteed sorted by the schema (popup.js sorts defensively too),
@@ -4165,8 +4198,8 @@ async function loadData() {
 // no events[] at all (e.g. gary-research places with only a static description) —
 // null means "not date-gated," handled in applyVisibility below.
 function stopEarliestDateSort(stop) {
-  if (!stop.events || !stop.events.length) return null;
-  return stop.events.map(e => e.dateSort).sort()[0];
+  const dates = (stop.events || []).map(e => e.dateSort).filter(Boolean).sort();
+  return dates.length ? dates[0] : null;
 }
 
 function applyHeadings() {
@@ -4247,10 +4280,11 @@ function setupChipVisibility() {
 // per stop: hidden (track off), ghost (not yet reached), revealed (fully shown).
 // A stop with no dated events (firstDateSort === null) is never date-gated —
 // it's revealed whenever its track is visible, same as before the slider existed.
+// With no dates on the whole map (currentDateSort === null) nothing is gated.
 function applyVisibility() {
   allStops.forEach(entry => {
     const wantState = !trackVisible[entry.track] ? null
-      : entry.firstDateSort === null ? 'revealed'
+      : entry.firstDateSort === null || state.currentDateSort === null ? 'revealed'
       : entry.firstDateSort <= state.currentDateSort ? 'revealed'
       : 'ghost';
     if (entry.currentlyShownAs === wantState) return;
@@ -4284,11 +4318,18 @@ function formatDateSort(dateSort) {
 
 function setupTimeline() {
   const uniqueDates = Array.from(new Set(
-    allStops.flatMap(entry => (entry.stop.events || []).map(e => e.dateSort))
+    allStops.flatMap(entry => (entry.stop.events || []).map(e => e.dateSort).filter(Boolean))
   )).sort();
 
   const slider = document.getElementById('timelineSlider');
   const dateLabel = document.getElementById('timelineDate');
+
+  // No dated events anywhere: no timeline, every stop shown.
+  if (!uniqueDates.length) {
+    document.querySelector('.timeline-bar').style.display = 'none';
+    applyVisibility();
+    return;
+  }
 
   slider.min = 0;
   slider.max = uniqueDates.length - 1;
